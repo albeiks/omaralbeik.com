@@ -2,7 +2,14 @@
 
 Source code for [omaralbeik.com](https://omaralbeik.com)
 
-[TOC]
+## Table of Contents
+- [Features](#features)
+- [Getting started](#getting-started)
+- [Deployment](#deployment)
+- [Make it yours](#make-it-yours)
+- [Rest API](#rest-api)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Features
 
