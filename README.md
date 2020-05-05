@@ -2,6 +2,8 @@
 
 Source code for [omaralbeik.com](https://omaralbeik.com)
 
+![CI](https://github.com/albeiks/omaralbeik.com/workflows/CI/badge.svg?branch=master)
+
 ## Table of Contents
 - [Features](#features)
 - [Getting started](#getting-started)
