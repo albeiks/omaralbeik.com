@@ -17,13 +17,13 @@
     "cogo-toast": "^4.2.3",
     "dotenv": "^8.2.0",
     "isomorphic-unfetch": "^3.0.0",
-    "moment": "^2.24.0",
-    "next": "^9.3.5",
+    "moment": "^2.25.3",
+    "next": "^9.3.6",
     "next-compose-plugins": "^2.2.0",
     "next-images": "^1.4.0",
-    "next-offline": "^5.0.1",
+    "next-offline": "^5.0.2",
     "next-seo": "^4.4.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -40,10 +40,10 @@
     "react-share": "^4.1.0",
     "reactstrap": "^8.4.1",
     "remark-math": "^2.0.1",
-    "sass": "^1.26.3",
+    "sass": "^1.26.5",
     "styled-components": "^5.1.0",
     "throttle-debounce": "^2.1.0",
-    "webpack": "^4.42.1"
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -54,7 +54,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^3.0.0"
+    "eslint-plugin-react-hooks": "^4.0.0"
   },
   "repository": {
     "type": "git",
