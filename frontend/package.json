@@ -1,0 +1,67 @@
+{
+  "name": "frontend",
+  "version": "2.0.0",
+  "author": "Omar Albeik",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-plugin-styled-components": "^1.10.7",
+    "bootstrap": "^4.4.1",
+    "cogo-toast": "^4.2.3",
+    "dotenv": "^8.2.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "moment": "^2.24.0",
+    "next": "^9.3.5",
+    "next-compose-plugins": "^2.2.0",
+    "next-images": "^1.4.0",
+    "next-offline": "^5.0.1",
+    "next-seo": "^4.4.0",
+    "node-sass": "^4.13.1",
+    "nprogress": "^0.2.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-copy-to-clipboard": "^5.0.2",
+    "react-dom": "^16.13.1",
+    "react-ga": "^2.7.0",
+    "react-google-recaptcha": "^2.0.1",
+    "react-highlight.js": "^1.0.7",
+    "react-image": "^2.4.0",
+    "react-loading": "^2.0.3",
+    "react-markdown": "^4.3.1",
+    "react-mathjax": "^1.0.1",
+    "react-moment": "^0.9.7",
+    "react-share": "^4.1.0",
+    "reactstrap": "^8.4.1",
+    "remark-math": "^2.0.1",
+    "sass": "^1.26.3",
+    "styled-components": "^5.1.0",
+    "throttle-debounce": "^2.1.0",
+    "webpack": "^4.42.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-inline-react-svg": "^1.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-import-resolver-babel-module": "^5.1.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albeiks/omaralbeik.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/albeiks/omaralbeik.com/issues"
+  },
+  "homepage": "https://omaralbeik.com"
+}

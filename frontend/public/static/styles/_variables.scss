@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css?family=Martel:400,700,800|Open+Sans:400,600,700&display=swap");
+
+:root {
+  @media (prefers-color-scheme: dark) {
+    --color-header: #f4511e;
+    --color-header-hover: #ff5e2c;
+    --color-header-active: #ab2900;
+    --color-header-text: #ffffff;
+
+    --color-footer-1: #0f0f0f;
+    --color-footer-2: #353535;
+    --color-footer-text: #ffffff;
+    --color-footer-link: #ef6c00;
+    --color-footer-link-hover: #ff5e2c;
+
+    --color-bg-1: #000000;
+    --color-bg-2: #222222;
+    --color-bg-3: #292929;
+
+    --color-text-1: #ffffff;
+    --color-text-2: #ffffff;
+    --color-text-3: #eeeeee;
+    --color-text-4: #a8a8a8;
+    --color-text-5: #3d3d3d;
+
+    --color-primary-1: #e65100;
+    --color-primary-2: #f05e0e;
+    --color-primary-3: #ef6c00;
+    --color-primary-text: #ffffff;
+
+    --color-tag-bg: #e65100;
+    --color-tag-text: #ffffff;
+
+    --font-title: "Martel", serif;
+    --font-primary: "Open Sans", sans-serif;
+  }
+
+  @media (prefers-color-scheme: light) {
+    --color-header: #f4511e;
+    --color-header-hover: #ff5e2c;
+    --color-header-active: #ab2900;
+    --color-header-text: #ffffff;
+
+    --color-footer-1: #161616;
+    --color-footer-2: #2f2f2f;
+    --color-footer-text: #ffffff;
+    --color-footer-link: #ef6c00;
+    --color-footer-link-hover: #ff5e2c;
+
+    --color-bg-1: #ffffff;
+    --color-bg-2: #f7f7f7;
+    --color-bg-3: #f0f0f0;
+
+    --color-text-1: #000000;
+    --color-text-2: #161616;
+    --color-text-3: #1a1a1a;
+    --color-text-4: #495057;
+    --color-text-5: #cecece;
+
+    --color-primary-1: #e65100;
+    --color-primary-2: #f05e0e;
+    --color-primary-3: #ef6c00;
+    --color-primary-text: #ffffff;
+
+    --color-tag-bg: #e65100;
+    --color-tag-text: #ffffff;
+
+    --font-title: "Martel", serif;
+    --font-primary: "Open Sans", sans-serif;
+  }
+}

@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Pull latest changes
+        run: |
+          cd ~/omaralbeik.com
+          git pull
+
+      - name: Docker cleanup
+        run: |
+          docker image prune -af
+          docker container prune -f
+
+      - name: Build container
+        run: |
+          cd ~/omaralbeik.com
+          docker-compose -f prod.yml build --no-cache
+
+      - name: Deploy container
+        run: |
+          cd ~/omaralbeik.com
+          docker-compose -f prod.yml up -d

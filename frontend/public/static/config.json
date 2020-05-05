@@ -1,0 +1,43 @@
+{
+  "enableFooter": true,
+  "enableCopyright": true,
+  "enableCodeBlockCopy": true,
+  "enablePageLoadingBar": true,
+  "enableGoogleAnalytics": true,
+  "header": {
+    "sticky": true
+  },
+  "home": {
+    "redirectToPage": null,
+    "latestPosts": {
+      "enabled": true,
+      "highlightLatest": true,
+      "count": 3
+    },
+    "latestSnippets": {
+      "enabled": true,
+      "count": 3
+    },
+    "latestProjects": {
+      "enabled": true,
+      "count": 3
+    }
+  },
+  "blog": {
+    "highlightLatest": true,
+    "enableSocialSharing": true,
+    "enableSearch": true,
+    "enableTags": true,
+    "enableRelatedPosts": true
+  },
+  "snippets": {
+    "enableSearch": true,
+    "enableSocialSharing": true
+  },
+  "projects": {
+    "enableSearch": true
+  },
+  "about": {
+    "enableContact": true
+  }
+}

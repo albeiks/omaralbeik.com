@@ -1,0 +1,63 @@
+version: "3.7"
+
+volumes:
+  static_files:
+  media_files:
+  postgres:
+  next:
+
+services:
+  backend:
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/prod/python/Dockerfile
+    volumes:
+      - ./backend:/backend
+      - static_files:/backend/static
+      - media_files:/backend/media
+    env_file:
+      - ./.env.prod
+    depends_on:
+      - postgres
+    expose:
+      - "8000"
+
+  frontend:
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/prod/node/Dockerfile
+    environment:
+      env_file: ./.env.prod
+      NODE_ENV: production
+    volumes:
+      - ./frontend:/frontend
+      - next:/usr/src/app/.next
+    expose:
+      - "3000"
+
+  nginx:
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/prod/nginx/Dockerfile
+    volumes:
+      - static_files:/static_files
+      - media_files:/media_files
+      - next:/next
+    depends_on:
+      - backend
+      - frontend
+    ports:
+      - "80:80"
+
+  postgres:
+    image: postgres:12.2
+    restart: always
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    env_file:
+      - ./.env.prod
+    expose:
+      - "5432"

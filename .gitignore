@@ -1,0 +1,16 @@
+# Environments
+.env
+.env*
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+docker/.env*
+
+# macOS temporary files
+.DS_Store
+.AppleDouble
+.LSOverride
+docker/prod/nginx/app.conf

@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  backend:
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/dev/python/Dockerfile
+    env_file:
+      - ./.env.dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/backend
+
+  frontend:
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/dev/node/Dockerfile
+    environment:
+      env_file: ./.env.dev
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/frontend

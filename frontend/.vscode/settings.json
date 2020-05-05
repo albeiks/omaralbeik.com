@@ -1,0 +1,15 @@
+{
+  "editor.rulers": [
+    120,
+    140
+  ],
+  "editor.renderWhitespace": "selection",
+  "eslint.format.enable": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+}

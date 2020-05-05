@@ -1,0 +1,49 @@
+{
+  "name": "Omar Albeik",
+  "short_name": "Albeik",
+  "description": "Blog, Portfolio, and Personal Website",
+  "start_url": "/",
+  "homepage_url": "https://omaralbeik.com",
+  "default_locale": "en",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f4511e",
+  "theme_color": "#f4511e",
+  "author": "Omar Albeik",
+  "developer": {
+    "name": "Omar Albeik",
+    "url": "https://github.com/albeiks"
+  },
+  "icons": [
+    {
+      "src": "/static/favicon/favicon-16x16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "/static/favicon/favicon-32x32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/static/favicon/favicon-128x128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/static/favicon/favicon-256x256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/static/favicon/favicon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/static/favicon/favicon-1024x1024.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    }
+  ]
+}
