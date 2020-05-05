@@ -1,10 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 const webpack = require("webpack");
-const offline = require("next-offline");
-const images = require("next-images");
 const css = require("@zeit/next-css");
 const sass = require("@zeit/next-sass");
+const images = require("next-images");
+const offline = require("next-offline");
 const withPlugins = require("next-compose-plugins");
 
 const { parsed: localEnv } = require("dotenv").config();
@@ -19,8 +19,8 @@ const config = {
 
 module.exports = withPlugins([
   config,
-  offline,
-  images,
   css,
   sass,
+  images,
+  offline,
 ]);
