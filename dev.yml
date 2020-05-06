@@ -20,8 +20,8 @@ services:
       dockerfile: docker/dev/node/Dockerfile
     environment:
       env_file: ./.env.dev
-      NODE_ENV: production
+      NODE_ENV: dev
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/frontend
+      - ./frontend:/usr/src/app/:rw

@@ -25,13 +25,15 @@ export const blog = {
 };
 
 export const error = {
-  generic: {
+  500: {
     title: "Oops!",
-    backHome: "Back Home",
+    subtitle: "looks like you broke my website",
+    backHome: "Back to homepage",
   },
   404: {
-    title: "Page Not Found. aka 404",
-    backHome: "Back Home",
+    title: "Page Not Found.",
+    subtitle: "aka 404",
+    backHome: "Back to homepage",
   },
 };
 

@@ -22,8 +22,15 @@ class Snippets extends React.Component {
     const page = query?.page ?? "1";
     const offset = offsetFromQuery(query, 9);
     const id = query?.id;
+
+    let content;
     try {
-      const content = await API.fetch("contents/snippets");
+      content = await API.fetch("contents/snippets")
+    } catch (error) {
+      console.warn("Create contents/snippets for better SEO")
+    }
+
+    try {
       const response = await API.fetch(`snippets?limit=9&${offset}`);
       if (id) {
         const selected = await API.fetch(`snippets/${id}`);
@@ -91,7 +98,7 @@ class Snippets extends React.Component {
     const snippets = response.results;
     const { results } = this.state;
 
-    const meta = selected ? selected.meta : content.meta;
+    const meta = selected ? selected?.meta : content?.meta;
 
     return [
       <SEO key="seo" meta={meta} />,

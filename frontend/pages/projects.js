@@ -21,8 +21,15 @@ class Projects extends React.Component {
   static async getInitialProps({ query }) {
     const page = query?.page ?? "1";
     const offset = offsetFromQuery(query);
+
+    let content;
     try {
-      const content = await API.fetch("contents/projects");
+      content = await API.fetch("contents/projects")
+    } catch (error) {
+      console.warn("Create contents/projects for better SEO")
+    }
+
+    try {
       const response = await API.fetch(`projects?${offset}`);
       return { content, response, page };
     } catch (error) {
@@ -74,16 +81,16 @@ class Projects extends React.Component {
 
   render() {
     const { error, content, response } = this.props;
-    const projects = response.results;
 
     if (error) {
       return <Error error={error} />;
     }
 
+    const projects = response.results;
     const { results } = this.state;
 
     return [
-      <SEO key="seo" meta={content.meta} />,
+      <SEO key="seo" meta={content?.meta} />,
       this.renderSearch(),
       <Listing key="listing" projects={results || projects} />,
       this.renderPages(),

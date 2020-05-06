@@ -27,9 +27,15 @@ class Index extends React.Component {
         Router.push(`/${page}`);
       }
     } else {
-      try {
-        const content = await API.fetch("contents/home");
 
+      let content;
+      try {
+        content = await API.fetch("contents/home")
+      } catch (error) {
+        console.warn("Create contents/home for better SEO")
+      }
+
+      try {
         let posts = [];
         let snippets = [];
         let projects = [];
@@ -64,7 +70,7 @@ class Index extends React.Component {
   renderLatestPosts = () => {
     const { posts } = this.props;
     const { highlightLatest } = config.home.latestPosts;
-    if (config.home.latestPosts.enabled) {
+    if (config.home.latestPosts.enabled && posts.length !== 0) {
       return (
         <div key="posts">
           <Subtitle header icon={<PostsIcon />} subtitle={strings.latestPosts} />
@@ -77,7 +83,7 @@ class Index extends React.Component {
 
   renderLatestSnippets = () => {
     const { snippets } = this.props;
-    if (config.home.latestSnippets.enabled) {
+    if (config.home.latestSnippets.enabled && snippets.length !== 0) {
       return (
         <div key="snippets">
           <Subtitle icon={<SnippetsIcon />} subtitle={strings.latestSnippets} />
@@ -90,7 +96,7 @@ class Index extends React.Component {
 
   renderLatestProjects = () => {
     const { projects } = this.props;
-    if (config.home.latestProjects.enabled) {
+    if (config.home.latestProjects.enabled && projects.length !== 0) {
       return (
         <div key="projects">
           <Subtitle icon={<ProjectsIcon />} subtitle={strings.latestProjects} />
@@ -109,7 +115,7 @@ class Index extends React.Component {
     }
 
     return [
-      <SEO key="seo" meta={content.meta} />,
+      <SEO key="seo" meta={content?.meta} />,
       this.renderLatestPosts(),
       this.renderLatestSnippets(),
       this.renderLatestProjects(),

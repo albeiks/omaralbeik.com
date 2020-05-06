@@ -8,17 +8,17 @@ class SEO extends Component {
     return (
       <NextSeo
         key="seo"
-        title={meta.html_title}
-        description={meta.description}
-        canonical={meta.canonical}
+        title={meta?.html_title}
+        description={meta?.description}
+        canonical={meta?.canonical}
         additionalMetaTags={[{
           property: "keywords",
-          content: meta.keywords,
+          content: meta?.keywords,
         }]}
         openGraph={{
-          url: meta.canonical,
-          title: meta.title,
-          description: meta.description,
+          url: meta?.canonical,
+          title: meta?.title,
+          description: meta?.description,
         }}
       />
     );

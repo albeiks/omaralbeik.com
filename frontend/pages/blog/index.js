@@ -19,11 +19,17 @@ class Blog extends React.Component {
   state = {};
 
   static async getInitialProps({ query }) {
+    let content;
+    try {
+      content = await API.fetch("contents/blog")
+    } catch (error) {
+      console.warn("Create contents/blog for better SEO")
+    }
+
     const page = query?.page ?? "1";
     const numberOfCells = config.blog.highlightLatest ? 9 : 10;
     const offset = offsetFromQuery(query, numberOfCells);
     try {
-      const content = await API.fetch("contents/blog");
       const response = await API.fetch(`blog?limit=${numberOfCells}&${offset}`);
       return { content, response, page };
     } catch (error) {
@@ -85,7 +91,7 @@ class Blog extends React.Component {
     const { results } = this.state;
 
     return [
-      <SEO key="seo" meta={content.meta} />,
+      <SEO key="seo" meta={content?.meta} />,
       this.renderSearch(),
       <Listing key="listing" posts={results || posts} homepage={!previous && !results} />,
       this.renderPages(),
