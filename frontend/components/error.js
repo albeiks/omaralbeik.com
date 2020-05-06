@@ -9,15 +9,15 @@ import FiveHundred from "public/static/images/500.png";
 import FourOhFour from "public/static/images/404.png";
 import { Button } from "reactstrap";
 import { sm } from "public/static/styles/breakpoints";
+import Loading from "components/loading";
 
 
 class Error extends React.Component {
   render() {
-    const { error, code } = this.props;
-    const statusCode = error?.response?.status || code;
-
+    const { error } = this.props;
+        
     let src, title, subtitle, backHome;
-    if (statusCode === 404) {
+    if (error.code === 404) {
       src = FourOhFour
       title = strings["404"].title;
       subtitle = strings["404"].subtitle;
@@ -31,7 +31,7 @@ class Error extends React.Component {
     
     return (
       <StyledContainer>
-        <Img src={src} alt="error"/>
+        <Img src={src} alt="error" loader={<Loading />}/>
         <h1>{title}</h1>
         <p>{subtitle}</p>
         <Link href={home.url}>

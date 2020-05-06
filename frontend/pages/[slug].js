@@ -14,7 +14,10 @@ class Dynamic extends React.Component {
       if (content?.dynamic_page === true) {
         return { content };
       }
-      return { error: 404 };
+
+      const error = new Error("404");
+      error.code = 404
+      return { error };
     } catch (error) {
       return { error };
     }
@@ -24,13 +27,14 @@ class Dynamic extends React.Component {
     const { error, content } = this.props;
 
     if (error) {
+      console.log(error);
       return <Error error={error} />;
     }
 
     return [
-      <SEO key="seo" meta={content.meta} />,
-      <FreeTitle key="title" title={content.title} />,
-      <Markdown key="markdown" source={content.text} />,
+      <SEO key="seo" meta={content?.meta} />,
+      <FreeTitle key="title" title={content?.title} />,
+      <Markdown key="markdown" source={content?.text} />,
     ];
   }
 }

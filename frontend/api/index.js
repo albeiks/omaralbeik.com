@@ -29,7 +29,7 @@ class API {
       return res;
     }
     const err = new Error(res.statusText);
-    err.response = res;
+    err.code = res.status;
     throw err;
   }
 
