@@ -2,7 +2,7 @@
   "name": "Omar Albeik",
   "short_name": "Albeik",
   "description": "Blog, Portfolio, and Personal Website",
-  "start_url": "https://omaralbeik.com",
+  "start_url": "/",
   "homepage_url": "https://omaralbeik.com",
   "default_locale": "en",
   "display": "standalone",

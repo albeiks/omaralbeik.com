@@ -2,11 +2,17 @@ import fetch from "isomorphic-unfetch";
 
 class API {
   static get BASE_URL() {
-    return process.env.API_BASE_URL || "http://api.localhost:8000/v2"
+    return process.env.API_BASE_URL || "http://api.localhost:8000/v2";
   }
 
   static url(path) {
     return this._appendUrl(this.BASE_URL, path);
+  }
+
+  static error(code) {
+    const error = new Error(`${code}`);
+    error.code = code;
+    return error;
   }
 
   static async fetch(path, method = "GET", body) {
@@ -28,9 +34,7 @@ class API {
     if (res.ok && res.status >= 200 && res.status < 300) {
       return res;
     }
-    const err = new Error(res.statusText);
-    err.code = res.status;
-    throw err;
+    throw this.error(res.status);
   }
 
   static _appendUrl(url, path) {

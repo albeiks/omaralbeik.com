@@ -14,10 +14,7 @@ class Dynamic extends React.Component {
       if (content?.dynamic_page === true) {
         return { content };
       }
-
-      const error = new Error("404");
-      error.code = 404
-      return { error };
+      return { error: API.error(404) };
     } catch (error) {
       return { error };
     }

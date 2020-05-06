@@ -1,13 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import { Container } from "reactstrap";
+import { Container, Button } from "reactstrap";
 import { error as strings } from "public/static/locales/en";
 import { home } from "public/static/links";
 import Img from "react-image";
 import FiveHundred from "public/static/images/500.png";
 import FourOhFour from "public/static/images/404.png";
-import { Button } from "reactstrap";
+
 import { sm } from "public/static/styles/breakpoints";
 import Loading from "components/loading";
 
@@ -15,27 +15,31 @@ import Loading from "components/loading";
 class Error extends React.Component {
   render() {
     const { error } = this.props;
-        
-    let src, title, subtitle, backHome;
+
+    let src;
+    let title;
+    let subtitle;
+    let backHome;
+
     if (error.code === 404) {
-      src = FourOhFour
+      src = FourOhFour;
       title = strings["404"].title;
       subtitle = strings["404"].subtitle;
       backHome = strings["404"].backHome;
     } else {
-      src = FiveHundred
+      src = FiveHundred;
       title = strings["500"].title;
       subtitle = strings["500"].subtitle;
       backHome = strings["500"].backHome;
     }
-    
+
     return (
       <StyledContainer>
-        <Img src={src} alt="error" loader={<Loading />}/>
+        <Img src={src} alt="error" loader={<Loading />} />
         <h1>{title}</h1>
         <p>{subtitle}</p>
         <Link href={home.url}>
-        <Button>{backHome}</Button>
+          <Button>{backHome}</Button>
         </Link>
       </StyledContainer>
     );

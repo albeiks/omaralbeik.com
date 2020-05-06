@@ -1,10 +1,10 @@
 import React from "react";
 import Err from "components/error";
-
+import API from "api";
 
 class Error extends React.Component {
   render() {
-    return <Err code={500}/>;
+    return <Err error={API.error(500)} />;
   }
 }
 
