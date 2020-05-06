@@ -60,8 +60,6 @@ class ContactForm extends Component {
       this.reCaptchaRef.current.reset();
       this.showAlert(strings.success, true);
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
       this.showAlert(error, false);
     }
   }

@@ -24,9 +24,9 @@ class Projects extends React.Component {
 
     let content;
     try {
-      content = await API.fetch("contents/projects")
+      content = await API.fetch("contents/projects");
     } catch (error) {
-      console.warn("Create contents/projects for better SEO")
+      console.warn("Create contents/projects for better SEO");
     }
 
     try {

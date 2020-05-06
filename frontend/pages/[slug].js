@@ -24,7 +24,6 @@ class Dynamic extends React.Component {
     const { error, content } = this.props;
 
     if (error) {
-      console.log(error);
       return <Error error={error} />;
     }
 

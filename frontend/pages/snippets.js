@@ -25,9 +25,9 @@ class Snippets extends React.Component {
 
     let content;
     try {
-      content = await API.fetch("contents/snippets")
+      content = await API.fetch("contents/snippets");
     } catch (error) {
-      console.warn("Create contents/snippets for better SEO")
+      console.warn("Create contents/snippets for better SEO");
     }
 
     try {

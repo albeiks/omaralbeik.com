@@ -27,12 +27,11 @@ class Index extends React.Component {
         Router.push(`/${page}`);
       }
     } else {
-
       let content;
       try {
-        content = await API.fetch("contents/home")
+        content = await API.fetch("contents/home");
       } catch (error) {
-        console.warn("Create contents/home for better SEO")
+        console.warn("Create contents/home for better SEO");
       }
 
       try {

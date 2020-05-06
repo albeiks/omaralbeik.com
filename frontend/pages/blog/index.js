@@ -21,9 +21,9 @@ class Blog extends React.Component {
   static async getInitialProps({ query }) {
     let content;
     try {
-      content = await API.fetch("contents/blog")
+      content = await API.fetch("contents/blog");
     } catch (error) {
-      console.warn("Create contents/blog for better SEO")
+      console.warn("Create contents/blog for better SEO");
     }
 
     const page = query?.page ?? "1";
