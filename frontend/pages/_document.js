@@ -41,7 +41,7 @@ class Document extends NextDocument {
           <meta name="theme-color" content="#f4511e" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-orientations" content="portrait-any" />
-          <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="default" />
           <meta name="apple-mobile-web-app-title" content={strings.name} />
           <meta content="yes" name="apple-touch-fullscreen" />
 
