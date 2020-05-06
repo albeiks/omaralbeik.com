@@ -8,6 +8,7 @@ import { NextSeo } from "next-seo";
 import Progress from "nprogress";
 import { common as strings } from "public/static/locales/en";
 import config from "public/static/config.json";
+import { register, unregister } from "next-offline/runtime";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "public/static/styles/_variables.scss";
@@ -35,6 +36,7 @@ if (config.enablePageLoadingBar) {
 
 class App extends NextApp {
   componentDidMount() {
+    register();
     if (config.enableGoogleAnalytics) {
       this.logPageView(window.location.pathname + window.location.search);
       Router.onRouteChangeComplete = (url) => {
@@ -43,35 +45,39 @@ class App extends NextApp {
     }
   }
 
-    logPageView = (url) => {
-      try {
-        ReactGA.set({ page: url });
-        ReactGA.pageview(url);
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(error);
-      }
-    }
+  componentWillUnmount() {
+    unregister();
+  }
 
-    render() {
-      const { Component, pageProps } = this.props;
-      return [
-        <NextSeo
-          key="seo"
-          openGraph={{
-            site_name: strings.name,
-          }}
-          twitter={{
-            handle: `@${strings.twitterHandler}`,
-            site: `@${strings.twitterHandler}`,
-            cardType: "summary_large_image",
-          }}
-        />,
-        <Layout key="layout">
-          <Component {...pageProps} />
-        </Layout>,
-      ];
+  logPageView = (url) => {
+    try {
+      ReactGA.set({ page: url });
+      ReactGA.pageview(url);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
     }
+  }
+
+  render() {
+    const { Component, pageProps } = this.props;
+    return [
+      <NextSeo
+        key="seo"
+        openGraph={{
+          site_name: strings.name,
+        }}
+        twitter={{
+          handle: `@${strings.twitterHandler}`,
+          site: `@${strings.twitterHandler}`,
+          cardType: "summary_large_image",
+        }}
+      />,
+      <Layout key="layout">
+        <Component {...pageProps} />
+      </Layout>,
+    ];
+  }
 }
 
 export default App;
