@@ -4,11 +4,13 @@ import { common as strings } from "public/static/locales/en";
 import { sm } from "public/static/styles/breakpoints";
 import {
   FacebookShareButton,
+  WhatsappShareButton,
   TwitterShareButton,
   LinkedinShareButton,
   RedditShareButton,
   PocketShareButton,
   FacebookIcon,
+  WhatsappIcon,
   TwitterIcon,
   LinkedinIcon,
   RedditIcon,
@@ -32,6 +34,9 @@ class ShareButtons extends Component {
         <TwitterShareButton url={canonical} title={twitterMessage}>
           <TwitterIcon size={38} round />
         </TwitterShareButton>
+        <WhatsappShareButton url={canonical} title={message}>
+          <WhatsappIcon size={38} round />
+        </WhatsappShareButton>
         <LinkedinShareButton url={canonical} title={message}>
           <LinkedinIcon size={38} round />
         </LinkedinShareButton>
