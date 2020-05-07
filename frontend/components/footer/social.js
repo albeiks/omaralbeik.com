@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Col } from "reactstrap";
 import links from "public/static/links/social";
-import { sm } from "public/static/styles/breakpoints";
+import { sm, md } from "public/static/styles/breakpoints";
 
 
 class SocialLinks extends Component {
@@ -48,6 +48,14 @@ const StyledCol = styled(Col)`
     ul {
       li {
         margin: 8px;
+      }
+    }
+  }
+
+  @media (${md}) {
+    ul {
+      li {
+        margin-left: 8px;
       }
     }
   }

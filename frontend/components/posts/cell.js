@@ -62,7 +62,7 @@ const StyledCol = styled(Col)`
     padding: 24px;
     border-radius: 8px;
     cursor: pointer;
-    height: 280px;
+    height: 320px;
 
     .btn svg {
       margin-left: 8px;
