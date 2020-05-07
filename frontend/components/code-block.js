@@ -60,7 +60,7 @@ const StyledDiv = styled.div`
   margin-bottom: 16px;
   .wrapper {
     font-size: 85%;
-    overflow: scroll;
+    overflow-x: scroll;
     margin-top: 8px;
     pre {
       width: 100%;

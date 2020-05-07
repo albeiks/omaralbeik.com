@@ -15,7 +15,7 @@ class Block extends Component {
 }
 
 const StyledDiv = styled.div`
-  overflow: scroll;
+  overflow-x: scroll;
   max-width: 100%;
 `;
 

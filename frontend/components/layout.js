@@ -126,7 +126,7 @@ const GlobalStyle = createGlobalStyle`
 
       table {
         display: block;
-        overflow: scroll;
+        overflow-x: scroll;
         margin-bottom: 20px;
         max-width: 100%;
         width: 100%;
