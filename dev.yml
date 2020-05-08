@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   backend:
-    restart: always
+    restart: unless-stopped
     build:
       context: .
       dockerfile: docker/dev/python/Dockerfile
@@ -10,11 +10,17 @@ services:
       - ./.env.dev
     ports:
       - "8000:8000"
+    expose:
+      - "8000"
     volumes:
       - ./backend:/backend
+    networks:
+      dev:
+        aliases:
+            - api.localhost
 
   frontend:
-    restart: always
+    restart: unless-stopped
     build:
       context: .
       dockerfile: docker/dev/node/Dockerfile
@@ -25,3 +31,10 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend:/usr/src/app/:rw
+    networks:
+      - dev
+
+
+networks:
+  dev:
+    driver: bridge

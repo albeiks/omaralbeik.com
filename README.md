@@ -5,6 +5,7 @@ Source code for [omaralbeik.com](https://omaralbeik.com)
 ![CI](https://github.com/albeiks/omaralbeik.com/workflows/CI/badge.svg?branch=master)
 
 ## Table of Contents
+
 - [Features](#features)
 - [Getting started](#getting-started)
 - [Deployment](#deployment)
@@ -66,6 +67,22 @@ docker-compose -f dev.yml build
 ```sh
 docker-compose -f dev.yml run backend python manage.py createsuperuser
 ```
+
+#### Optional
+
+In some cases npm packages are not synced during the first build, to install them:
+
+```sh
+docker-compose -f dev.yml run --rm frontend bash
+```
+
+.. and once you're in the container
+
+```sh
+yarn install
+```
+
+> To exit the container press `ctrl` + `D`
 
 4. Start the containers
 
