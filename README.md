@@ -45,6 +45,7 @@ Source code for [omaralbeik.com](https://omaralbeik.com)
 - Markdown rendering including custom code block with a copy button.
 - LaTeX rending using [MathJax](https://www.mathjax.org/)
 - Unlimited dynamic pages rendering
+- Comments on blog posts using [Disqus](https://disqus.com/)
 
 ---
 

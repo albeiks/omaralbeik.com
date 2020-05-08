@@ -28,7 +28,8 @@
     "enableSocialSharing": true,
     "enableSearch": true,
     "enableTags": true,
-    "enableRelatedPosts": true
+    "enableRelatedPosts": true,
+    "enableDisqus": true
   },
   "snippets": {
     "enableSearch": true,
