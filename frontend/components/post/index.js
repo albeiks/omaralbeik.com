@@ -4,6 +4,7 @@ import config from "public/static/config.json";
 import Cover from "./cover";
 import Tags from "./tags";
 import Related from "./related";
+import Comments from "./comments";
 
 class Post extends Component {
   renderTags = () => {
@@ -23,12 +24,21 @@ class Post extends Component {
     return null;
   }
 
+  renderComments = () => {
+    const { post } = this.props;
+    if (config.blog.enableDisqus) {
+      return (<Comments post={post} />);
+    }
+    return null;
+  }
+
   render() {
     const { post } = this.props;
     return [
       <Cover key="cover" post={post} />,
       <Markdown key="markdown" source={post.text} />,
       this.renderTags(),
+      this.renderComments(),
       this.renderRelated(),
     ];
   }

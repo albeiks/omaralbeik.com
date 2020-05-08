@@ -22,6 +22,7 @@ export const home = {
 export const blog = {
   relatedTitle: "You made it to the end. You're Awesome!",
   relatedSubtitle: "Here is something more to read",
+  commentsTitle: "Comments",
 };
 
 export const error = {

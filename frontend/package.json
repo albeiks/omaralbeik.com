@@ -16,6 +16,7 @@
     "babel-plugin-styled-components": "^1.10.7",
     "bootstrap": "^4.4.1",
     "cogo-toast": "^4.2.3",
+    "disqus-react": "^1.0.8",
     "dotenv": "^8.2.0",
     "isomorphic-unfetch": "^3.0.0",
     "moment": "^2.25.3",
