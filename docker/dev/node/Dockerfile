@@ -1,5 +1,5 @@
 # pull official base image for builder
-FROM node:slim
+FROM node:10.20.1
 
 # create and set build directory
 RUN mkdir /app
