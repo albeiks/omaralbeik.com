@@ -1,5 +1,5 @@
 # pull official base image
-FROM node:latest
+FROM node:alpine
 
 # set and copy work directory
 WORKDIR /usr/src/app

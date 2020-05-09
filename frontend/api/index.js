@@ -2,7 +2,7 @@ import fetch from "isomorphic-unfetch";
 
 class API {
   static get BASE_URL() {
-    return process.env.API_BASE_URL || "http://api.localhost:8000/v2";
+    return process.env.FE_API_BASE_URL || "";
   }
 
   static url(path) {

@@ -41,11 +41,11 @@ class ProjectSerializer(serializers.ModelSerializer):
         return ", ".join([tag.name for tag in project.tags.all()])
 
     def get_canonical(self, project):
-        base = urllib.parse.urljoin(settings.CLIENT_URL, "projects")
+        base = urllib.parse.urljoin(settings.CLIENT_CANONICAL_URL, "projects/")
         return urllib.parse.urljoin(base, project.slug)
 
     def get_html_title(self, project):
-        name = settings.CLIENT_NAME
+        name = settings.CLIENT_CANONICAL_NAME
         return "{} | {}".format(project.name, name) if name else project.name
 
     def get_meta(self, project):

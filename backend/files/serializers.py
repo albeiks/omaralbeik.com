@@ -11,7 +11,7 @@ class ImageSerializer(serializers.ModelSerializer):
         fields = ["url", "alt"]
 
     def get_url(self, image):
-        return urllib.parse.urljoin(settings.CLIENT_URL, image.image.url)
+        return urllib.parse.urljoin(settings.CLIENT_CANONICAL_URL, image.image.url)
 
 class FileSerializer(serializers.ModelSerializer):
     url = serializers.SerializerMethodField()
@@ -21,4 +21,4 @@ class FileSerializer(serializers.ModelSerializer):
         fields = ["url", "name"]
 
     def get_url(self, file):
-        return urllib.parse.urljoin(settings.CLIENT_URL, file.file.url)
+        return urllib.parse.urljoin(settings.CLIENT_CANONICAL_URL, file.file.url)

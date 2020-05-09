@@ -9,7 +9,7 @@ class ReCAPTCHA extends Component {
     return (
       <Wrapper>
         <StyledCAPTCHA
-          sitekey={process.env.RECAPTCHA_SITE_KEY || "key"}
+          sitekey={process.env.FE_RECAPTCHA_SITE_KEY || ""}
           onChange={onChange}
           ref={innerRef}
         />

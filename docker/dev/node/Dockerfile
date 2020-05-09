@@ -1,29 +1,16 @@
-# pull official base image
-FROM node:latest
+# pull official base image for builder
+FROM node:alpine
 
-# copy and run entrypoint script
-COPY ./docker/dev/node/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# create and set build directory
+RUN mkdir /app
+WORKDIR /app
 
-# set and copy temp directory
-WORKDIR /tmp
-COPY frontend/package.json /tmp/
-COPY frontend/yarn.lock /tmp/
+# copy dependencies
+COPY frontend/package.json ./
+COPY frontend/yarn.lock ./
 
-# install next app dependencies
+# install dependencies
 RUN yarn install
-
-# set and copy work directory
-WORKDIR /usr/src/app
-COPY frontend /usr/src/app/
-COPY .env.dev /usr/src/app/.env
-RUN cp -a /tmp/node_modules /usr/src/app/
-
-# set entrypoint script
-ENTRYPOINT ["/entrypoint.sh"]
-
-# expose port for next dev server
-EXPOSE 3000
 
 # run next app
 CMD ["yarn", "dev"]

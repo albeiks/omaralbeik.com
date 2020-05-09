@@ -37,7 +37,7 @@ class ContentSerializer(serializers.ModelSerializer):
         return serializer.data
 
     def get_html_title(self, content):
-        name = settings.CLIENT_NAME
+        name = settings.CLIENT_CANONICAL_NAME
         content_name = content.name.capitalize()
         return "{} | {}".format(content_name, name) if name else content_name
 
@@ -46,7 +46,7 @@ class ContentSerializer(serializers.ModelSerializer):
 
     def get_canonical(self, content):
         path = "" if content.slug in ["index", "home"] else content.slug
-        return urllib.parse.urljoin(settings.CLIENT_URL, path)
+        return urllib.parse.urljoin(settings.CLIENT_CANONICAL_URL, path)
 
     def get_meta(self, content):
         return {

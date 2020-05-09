@@ -63,11 +63,11 @@ class SnippetSerializer(serializers.ModelSerializer):
         return serializer.data
 
     def get_html_title(self, snippet):
-        name = settings.CLIENT_NAME
+        name = settings.CLIENT_CANONICAL_NAME
         return "{} | {}".format(snippet.name, name) if name else snippet.name
 
     def get_canonical(self, snippet):
-        base = urllib.parse.urljoin(settings.CLIENT_URL, "snippets")
+        base = urllib.parse.urljoin(settings.CLIENT_CANONICAL_URL, "snippets/")
         path = "?id={}".format(snippet.slug)
         return urllib.parse.urljoin(base, path)
 

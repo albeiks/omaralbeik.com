@@ -63,14 +63,14 @@ class PostSerializer(serializers.ModelSerializer):
         return serializer.data
 
     def get_html_title(self, post):
-        name = settings.CLIENT_NAME
+        name = settings.CLIENT_CANONICAL_NAME
         return "{} | {}".format(post.title, name) if name else post.title
 
     def get_keywords(self, post):
         return ", ".join([tag.name for tag in post.tags.all()])
 
     def get_canonical(self, post):
-        base = urllib.parse.urljoin(settings.CLIENT_URL, "blog")
+        base = urllib.parse.urljoin(settings.CLIENT_CANONICAL_URL, "blog/")
         return urllib.parse.urljoin(base, post.slug)
 
     def get_meta(self, post):

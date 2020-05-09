@@ -7,24 +7,24 @@ BASE_DIR = path.dirname(path.dirname(path.abspath(__file__)))
 ## Running Django with a known SECRET_KEY defeats many of Django’s security
 ## protections, and can lead to privilege escalation and remote code execution
 ## vulnerabilities.
-SECRET_KEY = env.get("SECRET_KEY", default="change_me")
+SECRET_KEY = env.get("BE_SECRET_KEY", default="")
 
 # Never deploy a site into production with DEBUG turned on.
-DEBUG = int(env.get("DEBUG", default=1))
+DEBUG = int(env.get("BE_DEBUG", default=1))
 
 # A list of strings representing the host/domain names
 # that this Django site can serve.
-ALLOWED_HOSTS = env.get("ALLOWED_HOSTS", default="*").split(" ")
+ALLOWED_HOSTS = env.get("BE_ALLOWED_HOSTS", default="*").split(" ")
 
 # Used for contact form validatation
-RECAPTCHA_SECRET_KEY = env.get("RECAPTCHA_SECRET_KEY", default="change_me")
+RECAPTCHA_SECRET_KEY = env.get("BE_RECAPTCHA_SECRET_KEY", default="")
 
 # Used to return canonical urls for meta objects in the REST API.
 ## must end in a slash
-CLIENT_URL = env.get("CLIENT_URL", default="https://example.com/")
+CLIENT_CANONICAL_URL = env.get("BE_CLIENT_CANONICAL_URL", default="")
 
 # Used in html_title for meta objects in the REST API.
-CLIENT_NAME = env.get("CLIENT_NAME", default="")
+CLIENT_CANONICAL_NAME = env.get("BE_CLIENT_CANONICAL_NAME", default="")
 
 INSTALLED_APPS = [
     # Django
@@ -100,11 +100,11 @@ else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": env.get("POSTGRES_DB"),
-            "USER": env.get("POSTGRES_USER"),
-            "PASSWORD": env.get("POSTGRES_PASSWORD"),
-            "HOST": env.get("POSTGRES_HOST"),
-            "PORT": env.get("POSTGRES_PORT"),
+            "NAME": env.get("DB_POSTGRES_DB"),
+            "USER": env.get("DB_POSTGRES_USER"),
+            "PASSWORD": env.get("DB_POSTGRES_PASSWORD"),
+            "HOST": env.get("DB_POSTGRES_HOST"),
+            "PORT": env.get("DB_POSTGRES_PORT"),
         }
     }
 
@@ -185,8 +185,11 @@ MARTOR_MARKDOWN_EXTENSIONS = [
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 # Email settings
-EMAIL_HOST = env.get("EMAIL_HOST", default="smtp.sendgrid.net")
-EMAIL_PORT = env.get("EMAIL_PORT", default="587")
-EMAIL_USE_TLS = int(env.get("EMAIL_USE_TLS", default=1))
-EMAIL_HOST_USER = env.get("EMAIL_HOST_USER", default="apikey")
-EMAIL_HOST_PASSWORD = env.get("EMAIL_HOST_PASSWORD", default="")
+EMAIL_ENABLED = int(env.get("BE_EMAIL_ENABLED", default=0))
+EMAIL_HOST = env.get("BE_EMAIL_HOST", default="")
+EMAIL_PORT = env.get("BE_EMAIL_PORT", default="587")
+EMAIL_USE_TLS = int(env.get("BE_EMAIL_USE_TLS", default=1))
+EMAIL_HOST_USER = env.get("BE_EMAIL_HOST_USER", default="apikey")
+EMAIL_HOST_PASSWORD = env.get("BE_EMAIL_HOST_PASSWORD", default="")
+EMAIL_NO_REPLY_ADDRESS = env.get("BE_EMAIL_NO_REPLY_ADDRESS", default="")
+EMAIL_ADMIN_ADDRESS = env.get("BE_EMAIL_ADMIN_ADDRESS", default="")

@@ -69,22 +69,6 @@ docker-compose -f dev.yml build
 docker-compose -f dev.yml run backend python manage.py createsuperuser
 ```
 
-#### Optional
-
-In some cases npm packages are not synced during the first build, to install them:
-
-```sh
-docker-compose -f dev.yml run --rm frontend bash
-```
-
-.. and once you're in the container
-
-```sh
-yarn install
-```
-
-> To exit the container press `ctrl` + `D`
-
 4. Start the containers
 
 ```sh
@@ -165,21 +149,34 @@ To configure and custimze the app to suite your needs, I recommend forking the r
 
 > While this app allows for lots of customization, Keep in mind, it is not like a wordpress template!
 
-### Backend configurations
+### .env files
 
-Most of backend customizations are in the `.env.prod` file
+Most of backend and frontend configurations are in the `.env.prod` and `.env.dev` files
 
-| Key                    | Description                                                                                |
-| ---------------------- | ------------------------------------------------------------------------------------------ |
-| `DEBUG`                | Django debug more, **never set it to 1 in production**                                     |
-| `SECRET_KEY`           | Django secret key (must be strong and not contain spaces)                                  |
-| `ALLOWED_HOSTS`        | Set of domain names allowed to talk to Django app (space separated)                        |
-| `RECAPTCHA_SECRET_KEY` | [ReCaptcha](https://www.google.com/recaptcha) server key used to validate contact messages |
-| `CLIENT_URL`           | Production url for your website, usually `https://[your_domain]/`                          |
-| `CLIENT_NAME`          | Your name, or your website name, used to return HTML titles in meta                        |
-| `GA_TRACKING_NUMBER`   | [Google Analytics](https://analytics.google.com/) site number                              |
-| `RECAPTCHA_SITE_KEY`   | [ReCaptcha](https://www.google.com/recaptcha) site key used to validate contact messages   |
-| `EMAIL_ENABLED`        | Send email to admin on contact message submission, to disable, set it to `0`               |
+> The prefix `BE` implies the key is used in the backend
+> The prefix `DB` implies the key is used in the database
+> The prefix `FE` implies the key is used in the frontend
+
+| Key                        | Description                                                                                 |
+| -------------------------- | ------------------------------------------------------------------------------------------- |
+| `BE_DEBUG`                 | Django debug more, **never set it to 1 in production**                                      |
+| `BE_SECRET_KEY`            | Django secret key (must be strong and not contain spaces)                                   |
+| `BE_ALLOWED_HOSTS`         | Set of domain names allowed to talk to Django app (space separated)                         |
+| `BE_RECAPTCHA_SECRET_KEY`  | [ReCaptcha](https://www.google.com/recaptcha) server key used to validate contact messages  |
+| `BE_CLIENT_CANONICAL_URL`  | Production url for your website, usually `https://[your_domain]/`                           |
+| `BE_CLIENT_CANONICAL_NAME` | Your name, or your website name, used to return HTML titles in meta                         |
+| `BE_GA_TRACKING_NUMBER`    | [Google Analytics](https://analytics.google.com/) site number                               |
+| `BE_RECAPTCHA_SITE_KEY`    | [ReCaptcha](https://www.google.com/recaptcha) site key used to validate contact messages    |
+| `BE_EMAIL_ENABLED`         | Send email to admin on contact message submission, to disable, set it to `0`                |
+| `DB_POSTGRES_DB`           | PostgresSQL database name                                                                   |
+| `DB_POSTGRES_USER`         | PostgresSQL database username                                                               |
+| `DB_POSTGRES_PASSWORD`     | PostgresSQL database password                                                               |
+| `DB_POSTGRES_HOST`         | PostgresSQL database host                                                                   |
+| `DB_POSTGRES_PORT`         | PostgresSQL database port                                                                   |
+| `FE_API_BASE_URL`          | API base url                                                                                |
+| `FE_GA_TRACKING_NUMBER`    | Google Analytics site number                                                                |
+| `FE_RECAPTCHA_SITE_KEY`    | [ReCaptcha](https://www.google.com/recaptcha) website key used to validate contact messages |
+| `FE_DISQUS_SHORT_NAME`     | [Disqus](https://disqus.com/) short name                                                    |
 
 ### Frontend configurations
 

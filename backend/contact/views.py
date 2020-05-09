@@ -1,4 +1,4 @@
-from os import path, environ as env
+from os import path
 from django.conf import settings
 from rest_framework import mixins, viewsets, permissions, status
 from rest_framework.response import Response
@@ -50,10 +50,10 @@ class MessageViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
         return ip
 
     def send_new_message_email(self, data):
-        enabled = int(env.get("EMAIL_ENABLED", default=0))
-        from_address = env.get("EMAIL_FROM_ADDRESS")
-        to_address = env.get("EMAIL_ADMIN_ADDRESS")
-        if enabled and from_address and to_address: 
+        enabled = settings.EMAIL_ENABLED
+        from_address = settings.EMAIL_NO_REPLY_ADDRESS
+        to_address = settings.EMAIL_ADMIN_ADDRESS
+        if enabled and from_address and to_address:
             send_mail(data["subject"], self.create_message(data), from_address, [to_address])
 
     def create_message(self, data):
