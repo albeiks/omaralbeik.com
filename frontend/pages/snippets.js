@@ -70,7 +70,7 @@ class Snippets extends React.Component {
     if (config.snippets.enableSearch) {
       return (
         <InputWrapper key="search">
-          <Breadcrumb title={link.name} />
+          <Breadcrumb title={link().name} />
           <SearchInput
             placeholder={strings.searchSnippets}
             onInputUpdate={this.preformSearch}
@@ -81,7 +81,7 @@ class Snippets extends React.Component {
     }
     return (
       <InputWrapper key="title">
-        <Breadcrumb title={link.name} />
+        <Breadcrumb title={link().name} />
       </InputWrapper>
     );
   }

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Col, Badge } from "reactstrap";
 import { sm } from "public/static/styles/breakpoints";
 import { withRouter } from "next/router";
-import { snippets as url } from "public/static/links";
+import { snippet as link } from "public/static/links";
 
 class SnippetCell extends Component {
   handleClick = () => {
@@ -16,18 +16,10 @@ class SnippetCell extends Component {
 
   render() {
     const { snippet, router } = this.props;
-    const isSnippetPage = router.asPath.startsWith(url.url);
-    let path = isSnippetPage ? router.asPath : url.url;
-
-    if (router.query.page) {
-      path += `&id=${snippet.slug}`;
-    } else {
-      path += `?id=${snippet.slug}`;
-    }
-
+    const url = link(snippet, router.query.page).url;
     return (
       <StyledCol md={4} onClick={this.handleClick}>
-        <Link href={path}>
+        <Link href={url}>
           <a className="inner">
             <h2>
               {snippet.name}

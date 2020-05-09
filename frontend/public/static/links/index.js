@@ -18,18 +18,22 @@ export function blogPost(p) {
     url: `${blog.url}/${p.slug}`,
     templateUrl: `${blog.url}/[id]`,
   };
-}
-
-export const snippets = {
-  name: "Snippets",
-  url: "/snippets",
 };
 
-export function snippet(s) {
+export function snippets(page) {
+  const url = page ? `/snippets?page=${page}` : "/snippets";
+  return {
+    name: "Snippets",
+    url: url,
+  };
+};
+
+export function snippet(s, page) {
+  const base = snippets(page).url;
+  const url = page ? `${base}&id=${s.slug}` : `${base}?id=${s.slug}`;
   return {
     name: s.name,
-    url: `${snippets.url}?id=${s.slug}`,
-    templateUrl: `${snippets.url}/[id]`,
+    url: url,
   };
 }
 
@@ -53,5 +57,5 @@ export const repo = {
   url: "https://github.com/albeiks",
 };
 
-export const navbar = [blog, snippets, projects, about];
-export const footer = [blog, projects, snippets, api, about];
+export const navbar = [blog, snippets(), projects, about];
+export const footer = [blog, projects, snippets(), api, about];

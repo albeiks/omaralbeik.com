@@ -27,7 +27,7 @@ class Post extends Component {
   renderComments = () => {
     const { post } = this.props;
     if (config.blog.enableDisqus) {
-      return (<Comments post={post} />);
+      return (<Comments key="comments" post={post} />);
     }
     return null;
   }
