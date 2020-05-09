@@ -1,5 +1,5 @@
 # pull official base image for builder
-FROM node:alpine
+FROM node:slim
 
 # create and set build directory
 RUN mkdir /app
