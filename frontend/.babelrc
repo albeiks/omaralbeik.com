@@ -8,9 +8,11 @@
       "babel-plugin-styled-components",
       {
         "ssr": true,
-        "displayName": true,
+        "displayName": false,
+        "fileName": false,
         "minify": true,
-        "preprocess": false,
+        "transpileTemplateLiterals": false,
+        "preprocess": true,
         "pure": true
       }
     ],
