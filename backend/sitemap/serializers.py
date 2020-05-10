@@ -32,7 +32,8 @@ class SnippetSerializer(serializers.HyperlinkedModelSerializer):
 
     def get_loc(self, snippet):
         base = urllib.parse.urljoin(settings.CLIENT_CANONICAL_URL, "snippets/")
-        return urllib.parse.urljoin(base, snippet.slug)
+        path = "?id={}".format(snippet.slug)
+        return urllib.parse.urljoin(base, path)
 
     def get_priority(self, snippet):
         return "0.90"
