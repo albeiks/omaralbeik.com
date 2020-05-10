@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from rest_framework.routers import SimpleRouter
+from core.routers import OptionalTrailingSlashRouter
 
 from blog import views as blogViews
 from snippets import views as snippetsViews
@@ -7,13 +7,6 @@ from projects import views as projectsViews
 from tags import views as tagsViews
 from contents import views as contentsViews
 from contact import views as contactViews
-from sitemap import views as sitemapViews
-
-
-class OptionalTrailingSlashRouter(SimpleRouter):
-    def __init__(self):
-        self.trailing_slash = "/?"
-        super(SimpleRouter, self).__init__()
 
 
 router = OptionalTrailingSlashRouter()
@@ -24,7 +17,6 @@ router.register(r"projects", projectsViews.ProjectViewSet)
 router.register(r"tags", tagsViews.TagViewSet)
 router.register(r"contents", contentsViews.ContentViewSet)
 router.register(r"contact", contactViews.MessageViewSet)
-router.register(r"sitemap", sitemapViews.SitemapViewSet, basename='sitemap')
 
 # List or url patterns for the api subdomain
 urlpatterns = [
