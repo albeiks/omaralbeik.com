@@ -18,8 +18,8 @@ Source code for [omaralbeik.com](https://omaralbeik.com)
 
 - Fully dockerized apps for development and production
   - development: Django, SQLite and Node.
-  - production: Django, PostgreSQL, Node, and Nginx
-- `.env` files for quick and secure project setup
+  - production: Django, PostgreSQL, Node, and Nginx.
+- `.env` files for quick and secure project setup.
 - Easy deployment to any linux server, docker takes care of the database, apps, and routing.
 - Dynamic `/sitemap.xml` based on the contents of the website.
 
@@ -31,22 +31,23 @@ Source code for [omaralbeik.com](https://omaralbeik.com)
 - CMS Admin dashboard to edit database entries, blog posts, and more.
 - Markdown and LaTeX support
 - Universal tagging system for shared tags among all apps.
-- Unlimited dynamic pages
+- URL aliasing.
+- Unlimited dynamic pages.
 - Dynamic `meta` object in API responses for SEO.
 
 ### Frontend
 
-- Fully customizable web app, including theming, assets, strings, and [more](#configjson)
+- Fully customizable web app, including theming, assets, strings, and [more](#configjson).
 - Written in ES6 and built using NextJS.
-- Server side rendering and SEO friendly
+- Server side rendering and SEO friendly.
 - Progressive web app (PWA).
 - Google Analytics support.
-- Light/Dark themes and CSS in JS using styled-componenets
+- Light/Dark themes and CSS in JS using styled-componenets.
 - Fully responsive design with the help of Bootstrap.
 - Markdown rendering including custom code block with a copy button.
-- LaTeX rending using [MathJax](https://www.mathjax.org/)
-- Unlimited dynamic pages rendering
-- Comments on blog posts using [Disqus](https://disqus.com/)
+- LaTeX rending using [MathJax](https://www.mathjax.org/).
+- Unlimited dynamic pages rendering.
+- Comments on blog posts using [Disqus](https://disqus.com/).
 
 ---
 

@@ -1,6 +1,6 @@
 from django.db import models
 
-class Redirect(models.Model):
+class Alias(models.Model):
     source = models.CharField(max_length=255, unique=True)
     destination = models.SlugField(max_length=255, unique=True)
 

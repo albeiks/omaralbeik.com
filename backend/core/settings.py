@@ -7,7 +7,7 @@ BASE_DIR = path.dirname(path.dirname(path.abspath(__file__)))
 ## Running Django with a known SECRET_KEY defeats many of Django’s security
 ## protections, and can lead to privilege escalation and remote code execution
 ## vulnerabilities.
-SECRET_KEY = env.get("BE_SECRET_KEY", default="")
+SECRET_KEY = env.get("BE_SECRET_KEY", default="-")
 
 # Never deploy a site into production with DEBUG turned on.
 DEBUG = int(env.get("BE_DEBUG", default=1))
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     "projects",
     "contents",
     "contact",
-    "redirects",
+    "aliases",
     "sitemap",
     # 3rd party
     "rest_framework",
@@ -67,7 +67,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django_hosts.middleware.HostsResponseMiddleware",
-    "redirects.middleware.RedirectsMiddleware",
+    "aliases.middleware.AliasesMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
