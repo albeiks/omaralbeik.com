@@ -14,7 +14,7 @@ class ProgrammingLanguageAdmin(ImportExportModelAdmin):
 
 @admin.register(models.Snippet)
 class SnippetsAdmin(ImportExportModelAdmin):
-    search_fields = ["name", "slug", "summary", "text", "language"]
+    search_fields = ["name", "slug", "summary", "text", "language__name"]
     list_filter = ["language__name", "published"]
     list_display = [
         "name",
