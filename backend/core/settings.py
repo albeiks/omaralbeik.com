@@ -43,8 +43,10 @@ INSTALLED_APPS = [
     "contents",
     "contact",
     "redirects",
+    "sitemap",
     # 3rd party
     "rest_framework",
+    "rest_framework_xml",
     "rest_framework.authtoken",
     "corsheaders",
     "django_hosts",

@@ -7,6 +7,7 @@ from projects import views as projectsViews
 from tags import views as tagsViews
 from contents import views as contentsViews
 from contact import views as contactViews
+from sitemap import views as sitemapViews
 
 
 class OptionalTrailingSlashRouter(SimpleRouter):
@@ -23,6 +24,7 @@ router.register(r"projects", projectsViews.ProjectViewSet)
 router.register(r"tags", tagsViews.TagViewSet)
 router.register(r"contents", contentsViews.ContentViewSet)
 router.register(r"contact", contactViews.MessageViewSet)
+router.register(r"sitemap", sitemapViews.SitemapViewSet, basename='sitemap')
 
 # List or url patterns for the api subdomain
 urlpatterns = [

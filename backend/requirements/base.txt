@@ -12,3 +12,4 @@ Pillow~=7.1
 django-cleanup~=4.0
 requests~=2.23
 django-import-export~=2.0
+djangorestframework-xml~=2.0
