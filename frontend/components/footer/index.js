@@ -7,6 +7,7 @@ import Links from "./links";
 import Social from "./social";
 import Copyright from "./copyright";
 
+
 class Footer extends Component {
   renderFooter = () => {
     if (config.enableFooter) {

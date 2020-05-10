@@ -11,9 +11,8 @@
         "displayName": false,
         "fileName": false,
         "minify": true,
-        "transpileTemplateLiterals": false,
-        "preprocess": true,
-        "pure": true
+        "transpileTemplateLiterals": true,
+        "preprocess": true
       }
     ],
     [

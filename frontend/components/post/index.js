@@ -6,6 +6,7 @@ import Tags from "./tags";
 import Related from "./related";
 import Comments from "./comments";
 
+
 class Post extends Component {
   renderTags = () => {
     const { post } = this.props;

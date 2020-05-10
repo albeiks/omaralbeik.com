@@ -6,6 +6,7 @@ import { sm } from "public/static/styles/breakpoints";
 import { withRouter } from "next/router";
 import { snippet as link } from "public/static/links";
 
+
 class SnippetCell extends Component {
   handleClick = () => {
     const { snippet, onClick } = this.props;
@@ -16,7 +17,7 @@ class SnippetCell extends Component {
 
   render() {
     const { snippet, router } = this.props;
-    const url = link(snippet, router.query.page).url;
+    const { url } = link(snippet, router.query.page);
     return (
       <StyledCol md={4} onClick={this.handleClick}>
         <Link href={url}>
