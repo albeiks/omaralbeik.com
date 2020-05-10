@@ -21,6 +21,7 @@ Source code for [omaralbeik.com](https://omaralbeik.com)
   - production: Django, PostgreSQL, Node, and Nginx
 - `.env` files for quick and secure project setup
 - Easy deployment to any linux server, docker takes care of the database, apps, and routing.
+- Dynamic `/sitemap.xml` based on the contents of the website.
 
 ### Backend
 
