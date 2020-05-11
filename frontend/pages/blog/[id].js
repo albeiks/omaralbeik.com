@@ -37,7 +37,7 @@ class Post extends React.Component {
           url: post.meta.canonical,
           title: post.meta.title,
           description: post.meta.description,
-          images: [{ url: post.cover_image_url, alt: post.title }],
+          images: [{ url: post.cover_image?.url, alt: post.title }],
           article: {
             tags: post.meta.keywords,
             publishedTime: post.date_published,
