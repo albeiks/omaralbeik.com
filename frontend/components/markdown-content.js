@@ -51,21 +51,27 @@ const StyledMarkdown = styled(Markdown)`
 
   h1 {
     margin-top: 40px;
-    font-size: 160%;
+    font-size: 180%;
     font-weight: 800;
   }
 
   h2 {
+    margin-top: 40px;
+    font-size: 160%;
+    font-weight: 800;
+  }
+
+  h3 {
     margin-top: 24px;
     font-size: 130%;
   }
 
-  h3 {
+  h4 {
     margin-top: 16px;
     font-size: 115%;
   }
 
-  h4 {
+  h5 {
     margin-top: 10px;
     font-size: 110%;
   }
