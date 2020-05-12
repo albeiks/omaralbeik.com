@@ -1,8 +1,9 @@
+from core.models import BaseModel
 from django.db import models
 from django.utils.text import slugify
 
 
-class Tag(models.Model):
+class Tag(BaseModel):
     name = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=50, unique=True)
 

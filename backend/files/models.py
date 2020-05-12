@@ -1,6 +1,8 @@
+from core.models import BaseModel
 from django.db import models
 
-class Image(models.Model):
+
+class Image(BaseModel):
     image = models.ImageField(upload_to="images")
     alt = models.CharField(max_length=140, blank=True, null=True)
 
@@ -10,7 +12,8 @@ class Image(models.Model):
     class Meta:
         ordering = ["id", "alt"]
 
-class File(models.Model):
+
+class File(BaseModel):
     file = models.FileField(upload_to="files")
     name = models.CharField(max_length=140, blank=True, null=True)
     

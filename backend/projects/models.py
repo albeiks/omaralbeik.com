@@ -1,3 +1,4 @@
+from core.models import BaseModel
 from django.db import models
 
 
@@ -7,12 +8,11 @@ class ProjectManager(models.Manager):
         return queryset.filter(published=True)
 
 
-class Project(models.Model):
+class Project(BaseModel):
     name = models.CharField(max_length=140)
     slug = models.SlugField(max_length=140, unique=True)
     logo = models.ForeignKey("files.Image", on_delete=models.SET_NULL, blank=True, null=True)
     summary = models.TextField(max_length=255, blank=True)
-    date_created = models.DateTimeField(auto_now_add=True)
     date_published = models.DateField(blank=True, null=True)
     url_name = models.CharField(max_length=50, default="Website")
     url = models.URLField()

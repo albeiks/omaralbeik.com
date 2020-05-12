@@ -1,3 +1,4 @@
+from core.models import BaseModel
 from django.db import models
 from martor.models import MartorField
 
@@ -7,7 +8,7 @@ class SnippetManager(models.Manager):
         return super(SnippetManager, self).get_queryset().filter(published=True)
 
 
-class ProgrammingLanguage(models.Model):
+class ProgrammingLanguage(BaseModel):
     name = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50, unique=True)
     icon = models.ForeignKey("files.Image", on_delete=models.SET_NULL, blank=True, null=True)
@@ -16,11 +17,10 @@ class ProgrammingLanguage(models.Model):
         return self.name
 
 
-class Snippet(models.Model):
+class Snippet(BaseModel):
     name = models.CharField(max_length=140)
     slug = models.SlugField(max_length=140, unique=True)
     summary = models.TextField(max_length=255, blank=True)
-    date_created = models.DateTimeField(auto_now_add=True)
     text = MartorField()
     published = models.BooleanField(default=False)
     date_published = models.DateField(blank=True, null=True)
