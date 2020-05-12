@@ -13,6 +13,22 @@ class Content(BaseModel):
     tags = models.ManyToManyField("tags.Tag", blank=True)
     dynamic_page = models.BooleanField(default=False)
 
+    class Frequency(models.TextChoices):
+        ALWAYS = "AL", "always"
+        HOURLY = "HR", "hourly"
+        DAILY = "DY", "daily"
+        WEEKLY = "WK", "weekly"
+        MONTHLY = "MN", "monthly"
+        YEARLY = "YR", "yearly"
+        NEVER = "NR", "never"
+    
+    change_frequency = models.CharField(
+        max_length=2,
+        choices=Frequency.choices,
+        blank=True,
+        null=True,
+    )
+
     def __str__(self):
         return self.title
 

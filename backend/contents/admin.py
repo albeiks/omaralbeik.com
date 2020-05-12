@@ -12,10 +12,12 @@ class ContentAdmin(ImportExportModelAdmin):
         "slug",
         "title",
         "image",
+        "change_frequency",
         "summary",
         "text",
         "tags",
         "dynamic_page",
     ]
+    read_only_fields = ["date_created", "date_modified"]
     prepopulated_fields = {"slug": ["name"]}
     autocomplete_fields = ["image", "tags"]
