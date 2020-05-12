@@ -17,17 +17,18 @@ class PostCell extends Component {
     if (!config.blog.highlightLatest) {
       type = "normal";
     }
+    const url = link(post);
     const readTime = `${post.read_time} ${strings.read}`;
     return (
       <StyledCol md={type === "latest" ? 12 : 6}>
-        <Link href={link(post).templateUrl} as={link(post).url}>
-          <a className={`inner ${type}`}>
+        <Link href={url.templateUrl} title={url.name} as={url.url}>
+          <a className={`inner ${type}`} href={url.templateUrl} title={url.name}>
             <Moment className="date" format="D/M/YYYY">{post.date_published}</Moment>
             <h2 className={type}>{post.title}</h2>
             <p className="summary">{post.summary}</p>
             <div className="bottom">
               <p>{readTime}</p>
-              <Link href={link(post).url}>
+              <Link href={url.url} title={url.name}>
                 <Button>
                   {strings.readMore}
                   <Arrow />

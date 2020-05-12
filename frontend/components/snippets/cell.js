@@ -17,11 +17,11 @@ class SnippetCell extends Component {
 
   render() {
     const { snippet, router } = this.props;
-    const { url } = link(snippet, router.query.page);
+    const { url, name } = link(snippet, router.query.page);
     return (
       <StyledCol md={4} onClick={this.handleClick}>
-        <Link href={url}>
-          <a className="inner">
+        <Link href={url} title={name}>
+          <a className="inner" href={url} title={name}>
             <h2>
               {snippet.name}
               <Badge pill className="language">{snippet.language.name}</Badge>

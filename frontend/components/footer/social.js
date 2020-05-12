@@ -12,7 +12,7 @@ class SocialLinks extends Component {
         <ul>
           {links.map((l) => (
             <li key={l.url}>
-              <a key={l.name} href={l.url} target="_blank" rel="noopener noreferrer">
+              <a key={l.name} href={l.url} title={l.name} target="_blank" rel="noopener noreferrer">
                 {l.icon}
               </a>
             </li>

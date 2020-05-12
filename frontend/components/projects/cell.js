@@ -20,7 +20,7 @@ class ProjectCell extends Component {
         <Container className="inner">
           <Row>
             <Col md={2} sm={12}>
-              <Img src={[project.logo?.url, placeholder]} alt={project.logo?.alt} loader={<Loading />} />
+              <Img src={[project.logo?.url, placeholder]} alt="logo" title={project.logo?.alt} loader={<Loading />} />
             </Col>
             <Col md={10} sm={12} className="info">
               <div className="stretchy">
@@ -29,7 +29,7 @@ class ProjectCell extends Component {
                 <p className="summary">{project.summary}</p>
                 <Tags tags={project.tags} />
               </div>
-              <a href={project.url} target="_blank" rel="noopener noreferrer">
+              <a href={project.url} title={project.name} target="_blank" rel="noopener noreferrer">
                 <Button>
                   {project.url_name}
                   <Arrow />

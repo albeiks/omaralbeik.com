@@ -66,7 +66,7 @@ class Bar extends Component {
     return (
       <StyledNavbar expand="md" sticky={sticky} className={className}>
         <Container>
-          <Link href={home.url}>
+          <Link href={home.url} title={home.name}>
             <span>
               <NavbarBrand>{strings.name}</NavbarBrand>
             </span>
@@ -76,8 +76,8 @@ class Bar extends Component {
             <Nav navbar className="ml-auto">
               {links.map((link) => (
                 <NavItem key={link.name}>
-                  <ActiveLink href={link.url}>
-                    <NavLink href={link.url} onClick={() => { this.close(); }}>{link.name}</NavLink>
+                  <ActiveLink href={link.url} title={link.name}>
+                    <NavLink href={link.url} title={link.name} onClick={() => { this.close(); }}>{link.name}</NavLink>
                   </ActiveLink>
                 </NavItem>
               ))}

@@ -54,6 +54,8 @@ class Document extends NextDocument {
           <link rel="icon" type="image/png" sizes="1024x1024" href="/static/favicon/favicon-1024x1024.png" />
           <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png" />
 
+          <meta name="author" content={strings.name} />
+          <meta name="publisher" content={strings.name} />
           <meta name="copyright" content={strings.name} />
           <meta name="language" content="EN" />
           <meta name="robots" content="index,follow" />

@@ -22,7 +22,7 @@ class Pages extends Component {
     const pages = [...Array(count).keys()].map((i) => (`${i + 1}`));
     return pages.map((i) => (
       <PaginationItem key={i} active={current === i}>
-        <PaginationLink href={this.itemUrl(i)}>{i}</PaginationLink>
+        <PaginationLink href={this.itemUrl(i)} title={`Page ${i}`}>{i}</PaginationLink>
       </PaginationItem>
     ));
   }

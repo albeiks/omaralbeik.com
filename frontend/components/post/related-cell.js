@@ -12,7 +12,7 @@ class PostCell extends Component {
     const { post } = this.props;
     return (
       <StyledCol md={6}>
-        <Link href={blogPost(post).templateUrl} as={blogPost(post).url}>
+        <Link href={blogPost(post).templateUrl} title={blogPost(post).name} as={blogPost(post).url}>
           <div className="inner">
             <Moment className="date" format="D/M/YYYY">{post.date_published}</Moment>
             <h2>{post.title}</h2>

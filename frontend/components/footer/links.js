@@ -15,7 +15,9 @@ class Links extends Component {
           <ul>
             {links.map((link) => (
               <li key={link.name}>
-                <Link href={link.url}><a>{link.name}</a></Link>
+                <Link href={link.url} title={link.name}>
+                  <a href={link.url} title={link.name}>{link.name}</a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -23,7 +25,7 @@ class Links extends Component {
         <Row>
           <p className="repo">
             {strings.openSource}
-            <a href={repo.url} target="_blank" rel="noopener noreferrer">{repo.name}</a>
+            <a href={repo.url} title={repo.name} target="_blank" rel="noopener noreferrer">{repo.name}</a>
           </p>
         </Row>
       </StyledCol>

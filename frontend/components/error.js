@@ -35,10 +35,10 @@ class Error extends React.Component {
 
     return (
       <StyledContainer>
-        <Img src={src} alt="error" loader={<Loading />} />
+        <Img src={src} alt="icon" title={`Error ${error.code}`} loader={<Loading />} />
         <h1>{title}</h1>
         <p>{subtitle}</p>
-        <Link href={home.url}>
+        <Link href={home.url} title={home.name}>
           <Button>{backHome}</Button>
         </Link>
       </StyledContainer>

@@ -11,7 +11,9 @@ class Crumb extends Component {
     return (
       <StyledContainer>
         <Breadcrumb>
-          <BreadcrumbItem><a href={home.url}>{home.name}</a></BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href={home.url} title={home.name}>{home.name}</a>
+          </BreadcrumbItem>
           <BreadcrumbItem active><h1>{title}</h1></BreadcrumbItem>
         </Breadcrumb>
       </StyledContainer>

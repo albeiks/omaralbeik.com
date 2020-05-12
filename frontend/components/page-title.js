@@ -9,8 +9,8 @@ class Title extends Component {
     const { title, subtitle = null } = this.props;
     return (
       <StyledContainer>
-        <h1>{title}</h1>
-        <h2>{subtitle}</h2>
+        {title ? <h1>{title}</h1> : null}
+        {subtitle ? <h2>{subtitle}</h2> : null}
       </StyledContainer>
     );
   }

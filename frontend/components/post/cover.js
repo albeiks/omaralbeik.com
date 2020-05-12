@@ -24,10 +24,10 @@ class Cover extends Component {
     return (
       <div>
         <Title post={post} />
-        <StyledImg src={[post.cover_image?.url]} alt={post.cover_image?.alt} loader={<Loading />} />
+        <StyledImg src={[post.cover_image?.url]} alt="cover" title={post.cover_image?.alt} loader={<Loading />} />
         <StyledContainer>
           <Breadcrumb>
-            <BreadcrumbItem><a href={blog.url}>{blog.name}</a></BreadcrumbItem>
+            <BreadcrumbItem><a href={blog.url} title={blog.name}>{blog.name}</a></BreadcrumbItem>
             <BreadcrumbItem active>{post.title}</BreadcrumbItem>
           </Breadcrumb>
           {this.renderSocialSharing()}
