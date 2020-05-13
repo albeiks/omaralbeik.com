@@ -21,15 +21,15 @@ class PostCell extends Component {
     const readTime = `${post.read_time} ${strings.read}`;
     return (
       <StyledCol md={type === "latest" ? 12 : 6}>
-        <Link href={url.templateUrl} as={url.url} title={url.name}>
+        <Link href={url.templateUrl} as={url.url}>
           <a className={`inner ${type}`} href={url.url} title={url.name}>
             <Moment className="date" format="D/M/YYYY">{post.date_published}</Moment>
             <h2 className={type}>{post.title}</h2>
             <p className="summary">{post.summary}</p>
             <div className="bottom">
               <p>{readTime}</p>
-              <Link href={url.url} title={url.name}>
-                <Button>
+              <Link href={url.url}>
+                <Button title={url.name}>
                   {strings.readMore}
                   <Arrow />
                 </Button>

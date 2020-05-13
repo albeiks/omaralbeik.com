@@ -2,7 +2,7 @@ import React from "react";
 import API from "api";
 import Error from "components/error";
 import FreeTitle from "components/page-title";
-import Markdown from "components/markdown-content";
+import Markdown from "components/markdown";
 import SEO from "components/seo";
 
 

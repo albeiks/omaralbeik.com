@@ -20,7 +20,7 @@ class SnippetCell extends Component {
     const { url, name } = link(snippet, router.query.page);
     return (
       <StyledCol md={4} onClick={this.handleClick}>
-        <Link href={url} title={name}>
+        <Link href={url}>
           <a className="inner" href={url} title={name}>
             <h2>
               {snippet.name}

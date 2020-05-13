@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Markdown from "components/markdown-content";
+import Markdown from "components/markdown";
 import config from "public/static/config.json";
 import Cover from "./cover";
 import Tags from "./tags";

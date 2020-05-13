@@ -13,7 +13,7 @@ class Copyright extends Component {
       <Container>
         <Inner>
           {footer.copyright}
-          <Link href={home.url} title={common.name}>
+          <Link href={home.url}>
             <a href={home.url} title={common.name}>{common.name}</a>
           </Link>
           {footer.allRightsReserved}

@@ -15,7 +15,7 @@ class Links extends Component {
           <ul>
             {links.map((link) => (
               <li key={link.name}>
-                <Link href={link.url} title={link.name}>
+                <Link href={link.url}>
                   <a href={link.url} title={link.name}>{link.name}</a>
                 </Link>
               </li>

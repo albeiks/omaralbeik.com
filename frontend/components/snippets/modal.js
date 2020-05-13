@@ -3,7 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import { Modal, ModalBody, Badge } from "reactstrap";
 import { withRouter } from "next/router";
-import Markdown from "components/markdown-content";
+import Markdown from "components/markdown";
 import Close from "public/static/images/close.svg";
 import ShareButtons from "components/share-buttons";
 import { sm } from "public/static/styles/breakpoints";

@@ -6,6 +6,7 @@ import InlineLaTeX from "components/latex/inline";
 import BlockLaTeX from "components/latex/block";
 import { sm } from "public/static/styles/breakpoints";
 import MathJax from "react-mathjax";
+import Link from "./link";
 import RemarkMathPlugin from "remark-math";
 
 
@@ -19,11 +20,11 @@ class Content extends Component {
           escapeHtml={false}
           plugins={[RemarkMathPlugin]}
           className="container"
-          linkTarget="_blank"
           renderers={{
             code: CodeBlock,
             math: BlockLaTeX,
             inlineMath: InlineLaTeX,
+            link: Link,
           }}
         />
       </MathJax.Provider>
