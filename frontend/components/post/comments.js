@@ -9,7 +9,7 @@ import { sm } from "public/static/styles/breakpoints";
 class Comments extends Component {
   render() {
     const { post } = this.props;
-    const name = process.env.FE_DISQUS_SHORT_NAME || "";
+    const name = process.env.FE_DISQUS_SHORT_NAME || "shortname";
     return (
       <StyledContainer>
         <h2 className="title">{strings.commentsTitle}</h2>

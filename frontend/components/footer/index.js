@@ -45,6 +45,8 @@ const Outer = styled(Container)`
   color: var(--color-footer-text);
   padding-top: 40px;
   padding-bottom: 40px;
+  border-top: 2px solid var(--color-bg-3);
+  border-bottom: 2px solid var(--color-bg-3);
 
   @media (${sm}) {
     padding-top: 24px;

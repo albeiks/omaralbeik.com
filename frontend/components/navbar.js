@@ -94,10 +94,12 @@ const StyledNavbar = styled(Navbar)`
   color: var(--color-header-text);
   height: 100px;
   transition: all 0.3s ease, color .1ms;
+  box-shadow: 0 8px 0 0 var(--color-header-active);
 
   &.small {
     height: 56px;
     margin-bottom: 44px;
+    box-shadow: none;
     .navbar-brand {
       font-size: 24px;
     }

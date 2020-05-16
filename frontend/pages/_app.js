@@ -14,7 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "public/static/styles/_variables.scss";
 
 if (config.enableGoogleAnalytics) {
-  ReactGA.initialize(process.env.FE_GA_TRACKING_NUMBER || "");
+  ReactGA.initialize(process.env.FE_GA_TRACKING_NUMBER || "key");
 }
 
 if (config.enablePageLoadingBar) {
