@@ -13,3 +13,4 @@ urlpatterns = [
 admin.site.site_title = env.get("BE_CLIENT_CANONICAL_NAME", default="Admin")
 admin.site.site_header = env.get("BE_CLIENT_CANONICAL_NAME", default="Admin")
 admin.site.index_title = env.get("BE_CLIENT_CANONICAL_NAME", default="Admin")
+admin.site.site_url = env.get("BE_CLIENT_CANONICAL_URL")
