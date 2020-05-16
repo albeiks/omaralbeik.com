@@ -6,6 +6,8 @@ from blog.models import Post
 from snippets.models import Snippet
 from contents.models import Content
 
+date_format = "%Y-%m-%dT%H:%M:%S+00:00"
+
 class PostSerializer(serializers.HyperlinkedModelSerializer):
     loc = serializers.SerializerMethodField()
     lastmod = serializers.SerializerMethodField()
@@ -20,7 +22,7 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
         return urllib.parse.urljoin(base, post.slug)
 
     def get_lastmod(self, post):
-        return post.date_modified
+        return post.date_modified.strftime(date_format)
 
     def get_priority(self, post):
         return "0.90"
@@ -41,7 +43,7 @@ class SnippetSerializer(serializers.HyperlinkedModelSerializer):
         return urllib.parse.urljoin(base, path)
 
     def get_lastmod(self, snippet):
-        return snippet.date_modified
+        return snippet.date_modified.strftime(date_format)
 
     def get_priority(self, snippet):
         return "0.90"
@@ -68,7 +70,7 @@ class ContentSerializer(serializers.HyperlinkedModelSerializer):
         return urllib.parse.urljoin(settings.CLIENT_CANONICAL_URL, path)
 
     def get_lastmod(self, content):
-        return content.date_modified
+        return content.date_modified.strftime(date_format)
 
     def get_changefreq(self, content):
         if not content.change_frequency:
