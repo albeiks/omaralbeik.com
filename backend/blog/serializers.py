@@ -8,13 +8,11 @@ from files.serializers import ImageSerializer
 
 
 class PostSummarySerializer(serializers.ModelSerializer):
-    kind = serializers.SerializerMethodField()
     read_time = serializers.SerializerMethodField()
 
     class Meta:
         model = models.Post
         fields = [
-            "kind",
             "id",
             "title",
             "slug",
@@ -23,15 +21,11 @@ class PostSummarySerializer(serializers.ModelSerializer):
             "read_time",
         ]
 
-    def get_kind(self, post):
-        return "post"
-
     def get_read_time(self, post):
         return readtime.of_markdown(post.text).text
 
 
 class PostSerializer(serializers.ModelSerializer):
-    kind = serializers.SerializerMethodField()
     cover_image = serializers.SerializerMethodField()
     related = serializers.SerializerMethodField()
     tags = serializers.SerializerMethodField()
@@ -41,7 +35,6 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Post
         fields = [
-            "kind",
             "id",
             "title",
             "slug",
@@ -53,9 +46,6 @@ class PostSerializer(serializers.ModelSerializer):
             "tags",
             "meta",
         ]
-
-    def get_kind(self, post):
-        return "post"
 
     def get_cover_image(self, post):
         if not post.cover_image:
@@ -83,6 +73,16 @@ class PostSerializer(serializers.ModelSerializer):
         base = urllib.parse.urljoin(settings.CLIENT_CANONICAL_URL, "blog/")
         return urllib.parse.urljoin(base, post.slug)
 
+    def get_date_published(self, post):
+        return post.date_published;
+
+    def get_images(self, post):
+        image = self.get_cover_image(post)
+        return [image] if image else []
+
+    def get_tags(self, post):
+        return [tag.name for tag in post.tags.all()]
+
     def get_meta(self, post):
         return {
             "title": post.title,
@@ -90,4 +90,7 @@ class PostSerializer(serializers.ModelSerializer):
             "description": post.summary,
             "keywords": self.get_keywords(post),
             "canonical": self.get_canonical(post),
+            "published_time": self.get_date_published(post),
+            "images": self.get_images(post),
+            "tags": self.get_tags(post),
         }

@@ -7,7 +7,6 @@ from files.serializers import ImageSerializer
 
 
 class ProjectSerializer(serializers.ModelSerializer):
-    kind = serializers.SerializerMethodField()
     tags = serializers.SerializerMethodField()
     meta = serializers.SerializerMethodField()
     logo = serializers.SerializerMethodField()
@@ -15,7 +14,6 @@ class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Project
         fields = [
-            "kind",
             "id",
             "name",
             "slug",
@@ -27,9 +25,6 @@ class ProjectSerializer(serializers.ModelSerializer):
             "tags",
             "meta",
         ]
-
-    def get_kind(self, project):
-        return "project"
 
     def get_logo(self, project):
         if not project.logo:

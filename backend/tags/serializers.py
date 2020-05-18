@@ -2,12 +2,7 @@ from rest_framework import serializers
 from tags import models
 
 
-class TagSerializer(serializers.ModelSerializer):
-    kind = serializers.SerializerMethodField()
-    
+class TagSerializer(serializers.ModelSerializer):    
     class Meta:
         model = models.Tag
-        fields = ["kind", "id", "name", "slug"]
-
-    def get_kind(self, tag):
-        return "tag"
+        fields = ["id", "name", "slug"]
