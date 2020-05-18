@@ -80,7 +80,7 @@ class PostSerializer(serializers.ModelSerializer):
         image = self.get_cover_image(post)
         return [image] if image else []
 
-    def get_tags(self, post):
+    def get_meta_tags(self, post):
         return [tag.name for tag in post.tags.all()]
 
     def get_meta(self, post):
@@ -93,5 +93,5 @@ class PostSerializer(serializers.ModelSerializer):
             "article": post.title,
             "published_time": self.get_published_time(post),
             "images": self.get_images(post),
-            "tags": self.get_tags(post),
+            "tags": self.get_meta_tags(post),
         }
