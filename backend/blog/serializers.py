@@ -8,11 +8,13 @@ from files.serializers import ImageSerializer
 
 
 class PostSummarySerializer(serializers.ModelSerializer):
+    kind = serializers.SerializerMethodField()
     read_time = serializers.SerializerMethodField()
 
     class Meta:
         model = models.Post
         fields = [
+            "kind",
             "id",
             "title",
             "slug",
@@ -21,11 +23,15 @@ class PostSummarySerializer(serializers.ModelSerializer):
             "read_time",
         ]
 
+    def get_kind(self, post):
+        return "post"
+
     def get_read_time(self, post):
         return readtime.of_markdown(post.text).text
 
 
 class PostSerializer(serializers.ModelSerializer):
+    kind = serializers.SerializerMethodField()
     cover_image = serializers.SerializerMethodField()
     related = serializers.SerializerMethodField()
     tags = serializers.SerializerMethodField()
@@ -35,6 +41,7 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Post
         fields = [
+            "kind",
             "id",
             "title",
             "slug",
@@ -46,6 +53,9 @@ class PostSerializer(serializers.ModelSerializer):
             "tags",
             "meta",
         ]
+
+    def get_kind(self, post):
+        return "post"
 
     def get_cover_image(self, post):
         if not post.cover_image:

@@ -6,15 +6,21 @@ from files.serializers import ImageSerializer
 
 
 class ProgrammingLanguageSerializer(serializers.ModelSerializer):
+    kind = serializers.SerializerMethodField()
+
     class Meta:
         model = models.ProgrammingLanguage
         icon = serializers.SerializerMethodField()
         fields = [
+            "kind",
             "id",
             "name",
             "slug",
             "icon",
         ]
+
+    def get_kind(self, language):
+        return "language"
 
     def get_icon(self, language):
         if not language.icon:
@@ -24,17 +30,23 @@ class ProgrammingLanguageSerializer(serializers.ModelSerializer):
 
 
 class SnippetSummarySerializer(serializers.ModelSerializer):
+    kind = serializers.SerializerMethodField()
     language = serializers.SerializerMethodField()
 
     class Meta:
         model = models.Snippet
         fields = [
+            "kind",
             "id",
             "name",
             "slug",
             "language",
             "summary",
+            "date_published",
         ]
+
+    def get_kind(self, snippet):
+        return "snippet"
 
     def get_language(self, snippet):
         serializer = ProgrammingLanguageSerializer(snippet.language)
@@ -42,12 +54,14 @@ class SnippetSummarySerializer(serializers.ModelSerializer):
 
 
 class SnippetSerializer(serializers.ModelSerializer):
+    kind = serializers.SerializerMethodField()
     language = serializers.SerializerMethodField()
     meta = serializers.SerializerMethodField()
 
     class Meta:
         model = models.Snippet
         fields = [
+            "kind",
             "id",
             "name",
             "slug",
@@ -57,6 +71,9 @@ class SnippetSerializer(serializers.ModelSerializer):
             "language",
             "meta",
         ]
+
+    def get_kind(self, snippet):
+        return "snippet"
 
     def get_language(self, snippet):
         serializer = ProgrammingLanguageSerializer(snippet.language)

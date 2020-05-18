@@ -7,6 +7,7 @@ from files.serializers import ImageSerializer
 
 
 class ContentSerializer(serializers.ModelSerializer):
+    kind = serializers.SerializerMethodField()
     image = serializers.SerializerMethodField()
     tags = serializers.SerializerMethodField()
     meta = serializers.SerializerMethodField()
@@ -14,6 +15,7 @@ class ContentSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Content
         fields = [
+            "kind",
             "id",
             "name",
             "slug",
@@ -25,6 +27,9 @@ class ContentSerializer(serializers.ModelSerializer):
             "tags",
             "meta",
         ]
+
+    def get_kind(self, content):
+        return "content"
 
     def get_image(self, content):
         if not content.image:
