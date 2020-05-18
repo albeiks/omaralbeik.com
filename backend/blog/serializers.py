@@ -73,7 +73,7 @@ class PostSerializer(serializers.ModelSerializer):
         base = urllib.parse.urljoin(settings.CLIENT_CANONICAL_URL, "blog/")
         return urllib.parse.urljoin(base, post.slug)
 
-    def get_date_published(self, post):
+    def get_published_time(self, post):
         return post.date_published;
 
     def get_images(self, post):
@@ -90,7 +90,8 @@ class PostSerializer(serializers.ModelSerializer):
             "description": post.summary,
             "keywords": self.get_keywords(post),
             "canonical": self.get_canonical(post),
-            "published_time": self.get_date_published(post),
+            "article": post.title,
+            "published_time": self.get_published_time(post),
             "images": self.get_images(post),
             "tags": self.get_tags(post),
         }
