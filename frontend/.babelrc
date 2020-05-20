@@ -4,6 +4,7 @@
   ],
   "plugins": [
     "inline-react-svg",
+    "@babel/syntax-dynamic-import",
     [
       "babel-plugin-styled-components",
       {

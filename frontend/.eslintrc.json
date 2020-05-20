@@ -4,46 +4,74 @@
     "es6": true,
     "node": true
   },
-  "parser": "babel-eslint",
-  "extends": [
-    "plugin:react/recommended",
-    "airbnb"
-  ],
+  "extends": ["plugin:react/recommended", "airbnb"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 2018,
+    "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "no-underscore-dangle": "off",
     "import/prefer-default-export": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": "off",
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "groups": [
+          "builtin",
+          "external",
+          "index",
+          "internal",
+          "sibling",
+          "parent"
+        ]
+      }
+    ],
     "react/prefer-stateless-function": "off",
-    "react/jsx-pascal-case": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/destructuring-assignment": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "react/state-in-constructor": "off",
-    "react/prop-types": "off",
+    "@typescript-eslint/no-unused-vars": [
+      2,
+      {
+        "args": "none"
+      }
+    ],
+    "camelcase": "off",
     "quotes": [
       2,
       "double",
       {
         "avoidEscape": true
       }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
     ]
   },
   "settings": {
+    "import/extensions": "off",
     "import/resolver": {
-      "babel-module": {}
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "."]
+      }
     }
   }
 }

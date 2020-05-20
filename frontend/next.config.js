@@ -1,4 +1,6 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-shadow */
 
 const webpack = require("webpack");
 const css = require("@zeit/next-css");
@@ -10,7 +12,6 @@ const withPlugins = require("next-compose-plugins");
 const { parsed: localEnv } = require("dotenv").config();
 
 const config = {
-  // eslint-disable-next-line no-shadow
   webpack(config) {
     config.plugins.push(new webpack.EnvironmentPlugin(localEnv));
     return config;
