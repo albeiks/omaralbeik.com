@@ -11,7 +11,7 @@ import { Post } from "api/models/post";
 class Comments extends Component<{ post: Post }> {
   render() {
     const { post } = this.props;
-    const name = process.env.FE_DISQUS_SHORT_NAME || "shortname";
+    const name = process.env.FE_DISQUS_SHORT_NAME ?? "shortname";
     return (
       <StyledContainer>
         <h2 className="title">{strings.commentsTitle}</h2>

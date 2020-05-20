@@ -8,9 +8,14 @@ export const common = {
   copy: "Copy",
   clear: "Clear",
   copied: "Copied!",
-  searchBlogPosts: "Search Blog",
-  searchSnippets: "Search Snippets",
-  searchProjects: "Search Projects",
+  searchBlogPosts: "Search in %count% blog posts",
+  searchSnippets: "Search in %count% snippets",
+  searchProjects: "Search in %count% projects",
+  empty: {
+    title: "No Results Found",
+    subtitle1: "Trust me, I searched everywhere.",
+    subtitle2: "Maybe try a different keyword?",
+  },
 };
 
 export const home = {
@@ -71,7 +76,7 @@ export const months = [
   "October",
   "November",
   "Decembe",
-]
+];
 
 export const countries = [
   "Afghanistan",

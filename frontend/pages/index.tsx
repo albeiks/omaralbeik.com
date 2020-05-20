@@ -82,7 +82,7 @@ class Index extends React.Component<Props> {
       }
     }
 
-    return null;
+    return {};
   }
 
   renderLatestPosts = () => {

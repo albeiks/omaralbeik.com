@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import NextApp from "next/app";
 import Router from "next/router";
@@ -15,7 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "public/static/styles/_variables.scss";
 
 if (config.enableGoogleAnalytics) {
-  ReactGA.initialize(process.env.FE_GA_TRACKING_NUMBER || "key");
+  ReactGA.initialize(process.env.FE_GA_TRACKING_NUMBER ?? "key");
 }
 
 if (config.enablePageLoadingBar) {
@@ -57,28 +56,29 @@ class App extends NextApp {
       ReactGA.pageview(url);
     } catch (error) {
       // eslint-disable-next-line no-console
-      console.error(error);
+      console.warn(error);
     }
   }
 
   render() {
     const { Component, pageProps } = this.props;
-    return [
-      <NextSeo
-        key="seo"
-        openGraph={{
-          site_name: strings.name,
-        }}
-        twitter={{
-          handle: `@${strings.twitterHandler}`,
-          site: `@${strings.twitterHandler}`,
-          cardType: "summary_large_image",
-        }}
-      />,
-      <Layout key="layout">
-        <Component {...pageProps} />
-      </Layout>,
-    ];
+    return (
+      <div>
+        <NextSeo
+          openGraph={{
+            site_name: strings.name,
+          }}
+          twitter={{
+            handle: `@${strings.twitterHandler}`,
+            site: `@${strings.twitterHandler}`,
+            cardType: "summary_large_image",
+          }}
+        />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </div>
+    );
   }
 }
 

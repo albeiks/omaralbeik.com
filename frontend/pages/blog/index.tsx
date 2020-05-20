@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import { Container } from "reactstrap";
 import { NextPageContext } from "next";
@@ -12,6 +12,7 @@ import SearchInput from "components/search-input";
 import { common as strings } from "public/static/locales/en";
 import config from "public/static/config.json";
 import Breadcrumb from "components/breadcrumb";
+import Empty from "components/empty";
 import { blog as link } from "public/static/links";
 import { sm } from "public/static/styles/breakpoints";
 import SEO from "components/seo";
@@ -31,8 +32,8 @@ interface State {
   results?: PostSummary[]
 }
 
-class Blog extends React.Component<Props, State> {
-  state = { results: undefined };
+class Blog extends Component<Props, State> {
+  state: State = { results: undefined };
 
   static async getInitialProps({ query }: NextPageContext) {
     let content;
@@ -78,11 +79,13 @@ class Blog extends React.Component<Props, State> {
 
   renderSearch = () => {
     if (config.blog.enableSearch) {
+      const { count } = this.props.response;
+      const placeholder = strings.searchBlogPosts.replace("%count%", `${count}`);
       return (
         <InputWrapper key="search">
           <Breadcrumb title={link.name} />
           <SearchInput
-            placeholder={strings.searchBlogPosts}
+            placeholder={placeholder}
             onInputUpdate={this.preformSearch}
             onReset={this.resetSearch}
           />
@@ -96,21 +99,28 @@ class Blog extends React.Component<Props, State> {
     );
   }
 
-  render() {
-    const { error, content, response } = this.props;
-
-    if (error) {
-      return <Error error={error} />;
-    }
-
+  renderListing = () => {
+    const { response } = this.props;
     const { previous } = response;
     const posts = response.results;
     const { results } = this.state;
+    if (results?.length === 0) {
+      return <Empty key="empty" />;
+    }
+    return (
+      <Listing key="listing" posts={results ?? posts} homepage={!previous && !results} />
+    );
+  }
 
+  render() {
+    const { error, content } = this.props;
+    if (error) {
+      return <Error error={error} />;
+    }
     return [
       <SEO key="seo" meta={content?.meta} />,
       this.renderSearch(),
-      <Listing key="listing" posts={results ?? posts} homepage={!previous && !results} />,
+      this.renderListing(),
       this.renderPages(),
     ];
   }

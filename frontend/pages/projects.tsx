@@ -8,6 +8,7 @@ import Listing from "components/projects";
 import Pages from "components/pages";
 import { offsetFromQuery } from "utils";
 import Error from "components/error";
+import Empty from "components/empty";
 import Breadcrumb from "components/breadcrumb";
 import SearchInput from "components/search-input";
 import { common as strings } from "public/static/locales/en";
@@ -22,7 +23,7 @@ import Project from "api/models/project";
 
 interface Props {
   content?: Content
-  response?: Response<Project>
+  response: Response<Project>
   page: string
   error?: HTTPError
 }
@@ -32,7 +33,7 @@ interface State {
 }
 
 class Projects extends React.Component<Props, State> {
-  state = { results: undefined };
+  state: State = { results: undefined };
 
   static async getInitialProps({ query }: NextPageContext) {
     const page = query?.page ?? "1";
@@ -68,6 +69,18 @@ class Projects extends React.Component<Props, State> {
     this.setState({ results: undefined });
   }
 
+  renderListing = () => {
+    const { response } = this.props;
+    const projects = response.results;
+    const { results } = this.state;
+    if (results?.length === 0) {
+      return <Empty key="empty" />;
+    }
+    return (
+      <Listing key="listing" projects={results ?? projects} />
+    );
+  }
+
   renderPages = () => {
     const { page, response } = this.props;
     const { results } = this.state;
@@ -77,11 +90,13 @@ class Projects extends React.Component<Props, State> {
 
   renderSearch = () => {
     if (config.projects.enableSearch) {
+      const { count } = this.props.response;
+      const placeholder = strings.searchProjects.replace("%count%", `${count}`);
       return (
         <InputWrapper key="serch">
           <Breadcrumb title={link.name} />
           <SearchInput
-            placeholder={strings.searchProjects}
+            placeholder={placeholder}
             onInputUpdate={this.preformSearch}
             onReset={this.resetSearch}
           />
@@ -96,19 +111,14 @@ class Projects extends React.Component<Props, State> {
   }
 
   render() {
-    const { error, content, response } = this.props;
-
+    const { error, content } = this.props;
     if (error) {
       return <Error error={error} />;
     }
-
-    const projects = response?.results ?? [];
-    const { results } = this.state;
-
     return [
       <SEO key="seo" meta={content?.meta} />,
       this.renderSearch(),
-      <Listing key="listing" projects={results ?? projects} />,
+      this.renderListing(),
       this.renderPages(),
     ];
   }

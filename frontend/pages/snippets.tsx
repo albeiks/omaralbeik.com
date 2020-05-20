@@ -10,6 +10,7 @@ import SEO from "components/seo";
 import { offsetFromQuery } from "utils";
 import Error from "components/error";
 import SearchInput from "components/search-input";
+import Empty from "components/empty";
 import { common as strings } from "public/static/locales/en";
 import config from "public/static/config.json";
 import { snippets as link } from "public/static/links";
@@ -33,7 +34,7 @@ interface State {
 }
 
 class Snippets extends React.Component<Props, State> {
-  state = { results: undefined };
+  state: State = { results: undefined };
 
   static async getInitialProps({ query }: NextPageContext) {
     const page = query?.page ?? "1";
@@ -86,11 +87,13 @@ class Snippets extends React.Component<Props, State> {
 
   renderSearch = () => {
     if (config.snippets.enableSearch) {
+      const { count } = this.props.response;
+      const placeholder = strings.searchSnippets.replace("%count%", `${count}`);
       return (
         <InputWrapper key="search">
           <Breadcrumb title={link().name} />
           <SearchInput
-            placeholder={strings.searchSnippets}
+            placeholder={placeholder}
             onInputUpdate={this.preformSearch}
             onReset={this.resetSearch}
           />
@@ -104,24 +107,28 @@ class Snippets extends React.Component<Props, State> {
     );
   }
 
-  render() {
-    const {
-      error, content, response, selected,
-    } = this.props;
+  renderListing() {
+    const { selected, response } = this.props;
+    const snippets = response.results;
+    const { results } = this.state;
+    if (results?.length === 0) {
+      return <Empty key="empty" />;
+    }
+    return (
+      <Listing key="listing" snippets={results ?? snippets} selected={selected} />
+    );
+  }
 
+  render() {
+    const { error, content, selected } = this.props;
     if (error) {
       return <Error error={error} />;
     }
-
-    const snippets = response.results;
-    const { results } = this.state;
-
     const meta = selected ? selected?.meta : content?.meta;
-
     return [
       <SEO key="seo" meta={meta} />,
       this.renderSearch(),
-      <Listing key="listing" snippets={results || snippets} selected={selected} />,
+      this.renderListing(),
       this.renderPages(),
     ];
   }
