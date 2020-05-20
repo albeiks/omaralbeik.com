@@ -26,7 +26,7 @@ class SnippetCell extends Component<Props> {
   render() {
     const { snippet, router } = this.props;
     const { page } = router.query;
-    const { url, name } = link(snippet, `${page}`);
+    const { url, name } = link(snippet, page as string);
     return (
       <StyledCol md={4} onClick={this.handleClick}>
         <Link href={url}>
