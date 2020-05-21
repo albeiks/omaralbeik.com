@@ -113,7 +113,7 @@ class Index extends React.Component<Props> {
           <Subtitle
             icon={<SnippetsIcon />}
             subtitle={strings.latestSnippets}
-            showAllLink={links.snippets().name}
+            showAllLink={links.snippets().url}
           />
           <Snippets snippets={snippets} />
         </div>
