@@ -1,14 +1,13 @@
 import React, { Component } from "react";
-import Link from "next/link";
 import styled from "styled-components";
-import { Modal, ModalBody, Badge } from "reactstrap";
+import {
+  Modal, ModalHeader, ModalBody, ModalFooter, Badge,
+} from "reactstrap";
 import { withRouter } from "next/router";
 import { WithRouterProps } from "next/dist/client/with-router";
 
 import Markdown from "components/markdown";
-import Close from "public/static/images/close.svg";
 import ShareButtons from "components/share-buttons";
-import { sm } from "public/static/styles/breakpoints";
 import config from "public/static/config.json";
 import { Snippet } from "api/models/snippet";
 
@@ -51,76 +50,53 @@ class SnippetModal extends Component<Props> {
 
     return (
       <div>
-        <Modal toggle={this.toggle} isOpen centered scrollable size="md">
-          <StyledModalBody>
-            <Link href={this.url()}>
-              <Close className="close" />
-            </Link>
-            <div className="header">
-              <h1>
-                {snippet.name}
-                <Badge pill className="language">{snippet.language.name}</Badge>
-              </h1>
-              <p>{snippet.summary}</p>
-            </div>
-            <Markdown source={snippet.text} />
+        <Wrapper isOpen scrollable size="lg" toggle={this.toggle}>
+          <ModalHeader toggle={this.toggle}>
+            {snippet.name}
+            <Badge pill className="language">{snippet.language.name}</Badge>
+          </ModalHeader>
+          <ModalBody>
+            <p>{snippet.summary}</p>
+            <Markdown className="markdown" source={snippet.text} />
+          </ModalBody>
+          <ModalFooter>
             {this.renderSocialSharing()}
-          </StyledModalBody>
-        </Modal>
+          </ModalFooter>
+        </Wrapper>
       </div>
     );
   }
 }
 
-const StyledModalBody = styled(ModalBody)`
-  position: relative;
-  color: var(--color-text-1);
-  background: var(--color-bg-2);
-  padding: 48px 32px;
-  padding-bottom: 24px;
-  .header {
-    h1 {
-      font-size: 180%;
-      .language {
-        display: inline-block;
-        border: 2px var(--color-text-1) solid;
-        background: none;
-        font-size: 80%;
-        color: var(--color-text-1);
-        margin: 8px;
-        padding-bottom: 1px;
-        vertical-align: middle;
-      }
-    }
-    margin-bottom: 40px;
+const Wrapper = styled(Modal)`
+  .modal-content {
+    border-radius: 8px;
+    max-height: 75vh;
   }
-  .close {
+  .modal-header, .modal-body, .modal-footer {
+    color: var(--color-text-1);
+    background: var(--color-bg-2);
+    border: none;
+  }
+  .modal-header .close {
+    color: var(--color-text-1);
+    text-shadow: none;
     opacity: 1;
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    path {
-      fill: var(--color-primary-2);
-    }
   }
-  .container {
-    margin-top: 32px;
-    margin-bottom: 32px;
+  .modal-body {
+    padding: 32px;
+  }
+  .language {
+    border: 2px var(--color-text-1) solid;
+    background: none;
+    font-size: 80%;
+    color: var(--color-text-1);
+    margin: 2px 8px;
+    padding-bottom: 1px;
+    vertical-align: middle;
+  }
+  .markdown {
     padding: 0;
-  }
-
-  @media (${sm}) {
-    .header {
-      h1 {
-        font-size: 140%;
-        .language {
-          font-size: 80%;
-        }
-      }
-    }
   }
 `;
 

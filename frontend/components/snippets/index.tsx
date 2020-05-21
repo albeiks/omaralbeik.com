@@ -27,15 +27,15 @@ class Snippets extends Component<Props> {
     const { snippets } = this.props;
 
     return (
-      <StyledContainer>
+      <Wrapper>
         <Row>{snippets.map((s) => (<Cell key={s.id} snippet={s} />))}</Row>
         {this.renderModal()}
-      </StyledContainer>
+      </Wrapper>
     );
   }
 }
 
-const StyledContainer = styled(Container)`
+const Wrapper = styled(Container)`
   margin-top: 40px;
   margin-bottom: 64px;
   @media (${sm}) {

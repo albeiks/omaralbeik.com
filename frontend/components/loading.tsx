@@ -4,11 +4,11 @@ import ReactLoading from "react-loading";
 
 class Loading extends React.Component {
   public render() {
-    return (<StyledReactLoading type="spin" />);
+    return (<StyledLoading type="spin" />);
   }
 }
 
-const StyledReactLoading = styled(ReactLoading)`
+const StyledLoading = styled(ReactLoading)`
   margin: 30% auto;
   svg {
     fill: var(--color-primary-1);

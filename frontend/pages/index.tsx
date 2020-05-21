@@ -20,6 +20,7 @@ import Content from "api/models/content";
 import { PostSummary } from "api/models/post";
 import { SnippetSummary } from "api/models/snippet";
 import Project from "api/models/project";
+import * as links from "public/static/links";
 
 
 interface Props {
@@ -91,7 +92,12 @@ class Index extends React.Component<Props> {
     if (config.home.latestPosts.enabled && posts.length !== 0) {
       return (
         <div key="posts">
-          <Subtitle header icon={<PostsIcon />} subtitle={strings.latestPosts} />
+          <Subtitle
+            header
+            icon={<PostsIcon />}
+            subtitle={strings.latestPosts}
+            showAllLink={links.blog.url}
+          />
           <Posts homepage={highlightLatest} posts={posts} />
         </div>
       );
@@ -104,7 +110,11 @@ class Index extends React.Component<Props> {
     if (config.home.latestSnippets.enabled && snippets.length !== 0) {
       return (
         <div key="snippets">
-          <Subtitle icon={<SnippetsIcon />} subtitle={strings.latestSnippets} />
+          <Subtitle
+            icon={<SnippetsIcon />}
+            subtitle={strings.latestSnippets}
+            showAllLink={links.snippets().name}
+          />
           <Snippets snippets={snippets} />
         </div>
       );
@@ -117,7 +127,11 @@ class Index extends React.Component<Props> {
     if (config.home.latestProjects.enabled && projects.length !== 0) {
       return (
         <div key="projects">
-          <Subtitle icon={<ProjectsIcon />} subtitle={strings.latestProjects} />
+          <Subtitle
+            icon={<ProjectsIcon />}
+            subtitle={strings.latestProjects}
+            showAllLink={links.projects.url}
+          />
           <Projects projects={projects} />
         </div>
       );

@@ -9,15 +9,15 @@ class Title extends Component<{ title: string, subtitle?: string }> {
   render() {
     const { title, subtitle } = this.props;
     return (
-      <StyledContainer>
+      <Wrapper>
         {title ? <h1>{title}</h1> : null}
         {subtitle ? <h2>{subtitle}</h2> : null}
-      </StyledContainer>
+      </Wrapper>
     );
   }
 }
 
-const StyledContainer = styled(Container)`
+const Wrapper = styled(Container)`
   margin-bottom: 32px;
   h2 {
     font-size: 130%;

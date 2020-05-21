@@ -12,14 +12,14 @@ class Projects extends Component<{ projects: Project[] }> {
   render() {
     const { projects } = this.props;
     return (
-      <StyledContainer>
+      <Wrapper>
         <Row>{projects.map((p) => (<Cell key={p.id} project={p} />))}</Row>
-      </StyledContainer>
+      </Wrapper>
     );
   }
 }
 
-const StyledContainer = styled(Container)`
+const Wrapper = styled(Container)`
   margin-top: 40px;
   margin-bottom: 64px;
   @media (${sm}) {

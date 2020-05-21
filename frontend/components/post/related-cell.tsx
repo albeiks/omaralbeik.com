@@ -13,7 +13,7 @@ class PostCell extends Component<{ post: PostSummary }> {
   render() {
     const { post } = this.props;
     return (
-      <StyledCol md={6}>
+      <Wrapper md={6}>
         <Link href={blogPost(post).templateUrl} as={blogPost(post).url}>
           <div className="inner" title={blogPost(post).name}>
             <DateWrapper date={post.date_published} />
@@ -21,12 +21,12 @@ class PostCell extends Component<{ post: PostSummary }> {
             <p className="summary">{post.summary}</p>
           </div>
         </Link>
-      </StyledCol>
+      </Wrapper>
     );
   }
 }
 
-const StyledCol = styled(Col)`
+const Wrapper = styled(Col)`
   padding: 16px;
   display: flex;
   .inner {

@@ -3,6 +3,16 @@
 Source code for [omaralbeik.com](https://omaralbeik.com)
 
 ![CI](https://github.com/albeiks/omaralbeik.com/workflows/CI/badge.svg?branch=master)
+![Python](https://img.shields.io/badge/Python-3%2B-yellow)
+![Django](https://img.shields.io/badge/Django-3.0%2B-darkgreen)
+![Typescript](https://img.shields.io/github/package-json/dependency-version/albeiks/omaralbeik.com/dev/typescript?filename=frontend%2Fpackage.json)
+![NextJS](https://img.shields.io/github/package-json/dependency-version/albeiks/omaralbeik.com/next?filename=frontend%2Fpackage.json)
+![Webpack](https://img.shields.io/github/package-json/dependency-version/albeiks/omaralbeik.com/webpack?filename=frontend%2Fpackage.json)
+![GitHub issues](https://img.shields.io/github/issues/albeiks/omaralbeik.com)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/albeiks/omaralbeik.com)
+![GitHub](https://img.shields.io/github/license/albeiks/omaralbeik.com)
+
+---
 
 ## Table of Contents
 
@@ -38,7 +48,7 @@ Source code for [omaralbeik.com](https://omaralbeik.com)
 ### Frontend
 
 - Fully customizable web app, including theming, assets, strings, and [more](#configjson).
-- Written in ES6 and built using NextJS.
+- Written in [Typescript](https://www.typescriptlang.org/) and built using NextJS.
 - Server side rendering and SEO friendly.
 - Progressive web app (PWA).
 - Google Analytics support.

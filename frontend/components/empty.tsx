@@ -4,6 +4,7 @@ import { Container } from "reactstrap";
 
 import { common as strings } from "public/static/locales/en";
 
+
 class Empty extends React.Component {
   render() {
     return (

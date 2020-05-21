@@ -46,17 +46,17 @@ class Block extends Component<Props> {
     const { value, language } = this.props;
     const copyClassName = config.enableCodeBlockCopy ? "copy" : "";
     return (
-      <StyledDiv>
+      <Wrapper>
         <div className={`wrapper ${copyClassName}`}>
           <Highlight language={language}>{value}</Highlight>
           {this.renderCopyButton()}
         </div>
-      </StyledDiv>
+      </Wrapper>
     );
   }
 }
 
-const StyledDiv = styled.div`
+const Wrapper = styled.div`
   background: #282a36;
   border-radius: 8px;
   position: relative;

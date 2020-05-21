@@ -19,7 +19,7 @@ class ProjectCell extends Component<{ project: Project }> {
   render() {
     const { project } = this.props;
     return (
-      <StyledContainer>
+      <Wrapper>
         <Container className="inner">
           <Row>
             <Col md={2} sm={12}>
@@ -41,12 +41,12 @@ class ProjectCell extends Component<{ project: Project }> {
             </Col>
           </Row>
         </Container>
-      </StyledContainer>
+      </Wrapper>
     );
   }
 }
 
-const StyledContainer = styled(Container)`
+const Wrapper = styled(Container)`
   padding: 16px;
   .inner {
     transition: all 0.3s ease;

@@ -8,7 +8,6 @@ const sass = require("@zeit/next-sass");
 const images = require("next-images");
 const offline = require("next-offline");
 const withPlugins = require("next-compose-plugins");
-
 const { parsed: localEnv } = require("dotenv").config();
 
 const config = {
@@ -18,7 +17,7 @@ const config = {
   },
   webpackDevMiddleware: (config) => {
     config.watchOptions = {
-      poll: 1000,
+      poll: 500,
       aggregateTimeout: 300,
     };
     return config;

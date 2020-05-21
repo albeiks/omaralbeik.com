@@ -37,16 +37,16 @@ class Pages extends Component<Props> {
       return null;
     }
     return (
-      <StyledContainer>
+      <Wrapper>
         <Pagination aria-label="pages">
           {this.renderItems()}
         </Pagination>
-      </StyledContainer>
+      </Wrapper>
     );
   }
 }
 
-const StyledContainer = styled(Container)`
+const Wrapper = styled(Container)`
   display: flex;
   justify-content: center;
   .active a {

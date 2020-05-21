@@ -10,19 +10,19 @@ class Crumb extends Component<{ title: string }> {
   render() {
     const { title } = this.props;
     return (
-      <StyledContainer>
+      <Wrapper>
         <Breadcrumb>
           <BreadcrumbItem>
             <a href={home.url} title={home.name}>{home.name}</a>
           </BreadcrumbItem>
           <BreadcrumbItem active><h1>{title}</h1></BreadcrumbItem>
         </Breadcrumb>
-      </StyledContainer>
+      </Wrapper>
     );
   }
 }
 
-const StyledContainer = styled(Container)`
+const Wrapper = styled(Container)`
   nav {
     .breadcrumb {
       margin: 0;

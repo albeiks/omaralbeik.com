@@ -12,16 +12,20 @@ import { sm } from "public/static/styles/breakpoints";
 import Link from "./link";
 
 
-class Content extends Component<{ source: string }> {
+interface Props extends React.HTMLAttributes<HTMLElement> {
+  source: string
+}
+
+class Content extends Component<Props> {
   render() {
-    const { source } = this.props;
+    const { source, className } = this.props;
     return (
       <MathJax.Provider>
         <StyledMarkdown
           source={source}
           escapeHtml={false}
           plugins={[RemarkMathPlugin]}
-          className="container"
+          className={`container ${className}`}
           renderers={{
             code: CodeBlock,
             math: BlockLaTeX,

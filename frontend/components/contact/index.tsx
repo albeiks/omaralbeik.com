@@ -84,7 +84,7 @@ class ContactForm extends Component<{}, State> {
     const isValid = (name && email && subject && message && recaptcha_response);
 
     return (
-      <StyledContainer>
+      <Wrapper>
         <h2>{strings.title}</h2>
         <Form onSubmit={this.handleSubmit}>
           <FormGroup row>
@@ -185,12 +185,12 @@ class ContactForm extends Component<{}, State> {
             </Col>
           </FormGroup>
         </Form>
-      </StyledContainer>
+      </Wrapper>
     );
   }
 }
 
-const StyledContainer = styled(Container)`
+const Wrapper = styled(Container)`
   margin-top: 80px;
   form {
     margin-top: 40px;

@@ -28,7 +28,7 @@ class SnippetCell extends Component<Props> {
     const { page } = router.query;
     const { url, name } = link(snippet, page as string);
     return (
-      <StyledCol md={4} onClick={this.handleClick}>
+      <Wrapper md={4} onClick={this.handleClick}>
         <Link href={url}>
           <a className="inner" href={url} title={name}>
             <h2>
@@ -38,12 +38,12 @@ class SnippetCell extends Component<Props> {
             <p className="summary">{snippet.summary}</p>
           </a>
         </Link>
-      </StyledCol>
+      </Wrapper>
     );
   }
 }
 
-const StyledCol = styled(Col)`
+const Wrapper = styled(Col)`
   padding: 16px;
   .inner {
     text-decoration: none;
