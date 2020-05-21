@@ -16,16 +16,16 @@ class Related extends Component<{ posts: PostSummary[] }> {
       return null;
     }
     return (
-      <StyledContainer>
+      <Wrapper>
         <h2>{strings.relatedTitle}</h2>
         <h3>{strings.relatedSubtitle}</h3>
         <Row>{posts.map((p) => (<PostCell key={p.id} post={p} />))}</Row>
-      </StyledContainer>
+      </Wrapper>
     );
   }
 }
 
-const StyledContainer = styled(Container)`
+const Wrapper = styled(Container)`
   padding-top: 48px;
   padding-bottom: 48px;
   h2 {

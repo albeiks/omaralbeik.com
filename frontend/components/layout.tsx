@@ -16,14 +16,14 @@ class Layout extends Component<Props> {
       <div id="root">
         <GlobalStyle />
         <Navbar />
-        <StretchyContainer fluid>{children}</StretchyContainer>
+        <StretchyWrapper fluid>{children}</StretchyWrapper>
         <Footer />
       </div>
     );
   }
 }
 
-const StretchyContainer = styled(Container)`
+const StretchyWrapper = styled(Container)`
   flex: 1 0 auto;
   overflow-x: hidden;
   padding: 0;

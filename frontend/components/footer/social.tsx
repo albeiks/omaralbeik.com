@@ -9,7 +9,7 @@ import { sm, md } from "public/static/styles/breakpoints";
 class SocialLinks extends PureComponent {
   render() {
     return (
-      <StyledCol>
+      <Wrapper>
         <ul>
           {links.map((l) => (
             <li key={l.url}>
@@ -19,12 +19,12 @@ class SocialLinks extends PureComponent {
             </li>
           ))}
         </ul>
-      </StyledCol>
+      </Wrapper>
     );
   }
 }
 
-const StyledCol = styled(Col)`
+const Wrapper = styled(Col)`
   display: flex;
   align-items: center;
   justify-content: flex-end;

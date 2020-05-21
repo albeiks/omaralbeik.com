@@ -11,30 +11,34 @@ import { sm } from "public/static/styles/breakpoints";
 class Copyright extends PureComponent {
   render() {
     return (
-      <Container>
-        <Inner>
+      <Wrapper>
+        <Container>
           {footer.copyright}
           <Link href={home.url}>
             <a href={home.url} title={common.name}>{common.name}</a>
           </Link>
           {footer.allRightsReserved}
-        </Inner>
-      </Container>
+        </Container>
+      </Wrapper>
     );
   }
 }
 
-const Inner = styled(Container)`
-  text-align: center;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  width: 100%;
-  a {
-    font-family: var(--font-title);
-    font-weight: 700;
+const Wrapper = styled(Container)`
+  .container {
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 100%;
+    a {
+      font-family: var(--font-title);
+      font-weight: 700;
+    }
   }
   @media (${sm}) {
-    font-size: 80%;
+    .container {
+      font-size: 80%;
+    }
   }
 `;
 

@@ -13,7 +13,7 @@ class Comments extends Component<{ post: Post }> {
     const { post } = this.props;
     const name = process.env.FE_DISQUS_SHORT_NAME ?? "shortname";
     return (
-      <StyledContainer>
+      <Wrapper>
         <h2 className="title">{strings.commentsTitle}</h2>
         <Container className="inner">
           <DiscussionEmbed
@@ -26,12 +26,12 @@ class Comments extends Component<{ post: Post }> {
             }}
           />
         </Container>
-      </StyledContainer>
+      </Wrapper>
     );
   }
 }
 
-const StyledContainer = styled(Container)`
+const Wrapper = styled(Container)`
   margin-top: 80px;
   margin-bottom: 32px;
   .title {

@@ -35,19 +35,19 @@ class Error extends React.Component<{ error: HTTPError }> {
     }
 
     return (
-      <StyledContainer>
+      <Wrapper>
         <Img src={src} alt="icon" title={`Error ${error.code}`} loader={<Loading />} />
         <h1>{title}</h1>
         <p>{subtitle}</p>
         <Link href={home.url}>
           <Button title={home.name}>{backHome}</Button>
         </Link>
-      </StyledContainer>
+      </Wrapper>
     );
   }
 }
 
-const StyledContainer = styled(Container)`
+const Wrapper = styled(Container)`
   display: flex;
   flex-direction: column;
   justify-content: center;

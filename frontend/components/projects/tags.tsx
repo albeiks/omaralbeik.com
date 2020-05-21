@@ -10,9 +10,7 @@ class Tags extends Component<{ tags: Tag[] }> {
     const { tags } = this.props;
     return (
       <Wrapper>
-        {tags.map((t) => (
-          <li key={t.id}><Badge>{t.name}</Badge></li>
-        ))}
+        {tags.map((t) => (<li key={t.id}><Badge>{t.name}</Badge></li>))}
       </Wrapper>
     );
   }

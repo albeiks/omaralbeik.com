@@ -20,14 +20,14 @@ class Posts extends Component<{ posts: PostSummary[], homepage?: boolean }> {
   render() {
     const { posts } = this.props;
     return (
-      <StyledContainer>
+      <Wrapper>
         <Row>{posts.map((p, i) => (<Cell key={p.id} type={this.cellType(i)} post={p} />))}</Row>
-      </StyledContainer>
+      </Wrapper>
     );
   }
 }
 
-const StyledContainer = styled(Container)`
+const Wrapper = styled(Container)`
   margin-top: 40px;
   margin-bottom: 64px;
   @media (${sm}) {

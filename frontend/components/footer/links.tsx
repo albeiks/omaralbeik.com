@@ -11,7 +11,7 @@ import { sm } from "public/static/styles/breakpoints";
 class Links extends PureComponent {
   render() {
     return (
-      <StyledCol md={8}>
+      <Wrapper md={8}>
         <Row>
           <ul>
             {links.map((link) => (
@@ -29,12 +29,12 @@ class Links extends PureComponent {
             <a href={repo.url} title={repo.name} target="_blank" rel="noopener noreferrer">{repo.name}</a>
           </p>
         </Row>
-      </StyledCol>
+      </Wrapper>
     );
   }
 }
 
-const StyledCol = styled(Col)`
+const Wrapper = styled(Col)`
   ul {
     list-style: none;
     padding: 0;

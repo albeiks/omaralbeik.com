@@ -27,7 +27,7 @@ class ShareButtons extends Component<{ title: string, meta: Meta }> {
     const message = title;
     const twitterMessage = `“${title}” by @${strings.twitterHandler}`;
     return (
-      <StyledDiv>
+      <Wrapper>
         <p className="share">{strings.share}</p>
         <FacebookShareButton url={canonical} quote={message}>
           <FacebookIcon size={38} round />
@@ -47,12 +47,12 @@ class ShareButtons extends Component<{ title: string, meta: Meta }> {
         <PocketShareButton url={canonical} title={message}>
           <PocketIcon size={38} round />
         </PocketShareButton>
-      </StyledDiv>
+      </Wrapper>
     );
   }
 }
 
-const StyledDiv = styled.div`
+const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;

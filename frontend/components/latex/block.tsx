@@ -7,14 +7,14 @@ class Block extends Component<{ value: string }> {
   render() {
     const { value } = this.props;
     return (
-      <StyledDiv>
+      <Wrapper>
         <MathJax.Node formula={value} />
-      </StyledDiv>
+      </Wrapper>
     );
   }
 }
 
-const StyledDiv = styled.div`
+const Wrapper = styled.div`
   overflow-x: scroll;
   max-width: 100%;
 `;

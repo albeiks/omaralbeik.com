@@ -14,14 +14,14 @@ class Footer extends PureComponent {
   renderFooter = () => {
     if (config.enableFooter) {
       return (
-        <Outer fluid className="outer" key="footer">
+        <Wrapper fluid key="footer">
           <Container>
             <Row>
               <Links />
               <Social />
             </Row>
           </Container>
-        </Outer>
+        </Wrapper>
       );
     }
     return null;
@@ -42,7 +42,7 @@ class Footer extends PureComponent {
   }
 }
 
-const Outer = styled(Container)`
+const Wrapper = styled(Container)`
   background: var(--color-footer-1);
   color: var(--color-footer-text);
   padding-top: 40px;

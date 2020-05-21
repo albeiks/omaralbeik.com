@@ -16,11 +16,11 @@ export class HTTPError extends Error {
 }
 
 class API {
-  static get BASE_URL() {
+  static get BASE_URL(): string {
     return process.env.FE_API_BASE_URL ?? "http://api.localhost:8000/v2";
   }
 
-  static url(path: string) {
+  static url(path: string): string {
     return this.appendPath(this.BASE_URL, path);
   }
 
@@ -50,7 +50,7 @@ class API {
     throw this.error(res.status);
   }
 
-  private static appendPath(url: string, path: string) {
+  private static appendPath(url: string, path: string): string {
     const cleanedUrl = url.endsWith("/") ? url.slice(0, -1) : url;
     const cleanedPath = path.startsWith("/") ? path.slice(0, -1) : path;
     return `${cleanedUrl}/${cleanedPath}`;

@@ -11,6 +11,7 @@ export const common = {
   searchBlogPosts: "Search in %count% blog posts",
   searchSnippets: "Search in %count% snippets",
   searchProjects: "Search in %count% projects",
+  showAll: "Show All",
   empty: {
     title: "No Results Found",
     subtitle1: "Trust me, I searched everywhere.",

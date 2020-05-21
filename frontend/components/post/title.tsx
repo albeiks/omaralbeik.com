@@ -6,19 +6,20 @@ import DateWrapper from "components/date-wrapper";
 import { sm } from "public/static/styles/breakpoints";
 import { Post } from "api/models/post";
 
+
 class Title extends Component<{ post: Post }> {
   render() {
     const { post } = this.props;
     return (
-      <StyledContainer>
+      <Wrapper>
         <h1>{post.title}</h1>
         <DateWrapper className="date" date={post.date_published} />
-      </StyledContainer>
+      </Wrapper>
     );
   }
 }
 
-const StyledContainer = styled(Container)`
+const Wrapper = styled(Container)`
   padding-top: 0;
   padding-bottom: 48px;
   h1 {

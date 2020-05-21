@@ -18,7 +18,7 @@ interface State {
 }
 
 class SearchInput extends Component<Props, State> {
-  state = { q: "" };
+  state: State = { q: "" };
 
   private searchDebounced: Function;
 
