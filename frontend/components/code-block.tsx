@@ -72,6 +72,9 @@ const Wrapper = styled.div`
     overflow-x: scroll;
     margin-top: 8px;
     .numbers {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       position: absolute;
       user-select: none;
       list-style: none;
@@ -84,6 +87,7 @@ const Wrapper = styled.div`
       border-right: 1px solid #3C4252;
       border-top-left-radius: 8px;
       text-align: right;
+      height: calc(100% - 32px);
     }
     pre {
       width: 100%;
