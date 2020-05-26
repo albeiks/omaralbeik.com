@@ -44,10 +44,15 @@ class Block extends Component<Props> {
 
   render() {
     const { value, language } = this.props;
+    const count = value.split(/\r\n|\r|\n/).length;
+    const lines = Array(count).fill(0).map((_, i) => (i + 1));
     const copyClassName = config.enableCodeBlockCopy ? "copy" : "";
     return (
       <Wrapper>
         <div className={`wrapper ${copyClassName}`}>
+          <ul className="numbers">
+            {lines.map((line) => (<li key={`${line}`}>{line}</li>))}
+          </ul>
           <Highlight language={language}>{value}</Highlight>
           {this.renderCopyButton()}
         </div>
@@ -66,9 +71,24 @@ const Wrapper = styled.div`
     font-size: 85%;
     overflow-x: scroll;
     margin-top: 8px;
+    .numbers {
+      position: absolute;
+      user-select: none;
+      list-style: none;
+      font-family: monospace;
+      padding: calc(0.5em + 16px) 8px;
+      margin: 0;
+      color: #858ca0;
+      background: #282a36;
+      line-height: 1.55;
+      border-right: 1px solid #3C4252;
+      border-top-left-radius: 8px;
+      text-align: right;
+    }
     pre {
       width: 100%;
       padding: 16px;
+      padding-left: 32px;
       tab-size: 4;
       white-space: pre;
       width: max-content;
