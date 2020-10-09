@@ -19,7 +19,6 @@ import { sm } from "public/static/styles/breakpoints";
 import Menu from "public/static/images/menu.svg";
 import config from "public/static/config.json";
 
-
 interface State {
   isOpen: boolean,
   small: boolean
@@ -120,6 +119,7 @@ const StyledNavbar = styled(Navbar)`
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease, color .1ms;
+    color: var(--color-header-text);
   }
 
   li {
