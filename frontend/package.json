@@ -38,7 +38,7 @@
     "react-mathjax": "^1.0.1",
     "react-share": "^4.3.0",
     "reactstrap": "^8.6.0",
-    "remark-math": "^4.0.0",
+    "remark-math": "^3.0.0",
     "sass": "^1.27.0",
     "styled-components": "^5.2.0",
     "throttle-debounce": "^2.3.0",
